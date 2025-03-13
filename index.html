@@ -1,0 +1,1637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anisha S Menon | Neuroscience Researcher</title>
+    <!-- External scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    
+    <style>
+        /* Base styles */
+        :root {
+            --primary-color: #15202e;
+            --secondary-color: #004e98;
+            --accent-color: #6a98c9;
+            --light-color: #e6f4f5;
+            --dark-color: #e6f4f5;
+            --text-color: #c2d7eb;
+            --font-main: 'Helvetica Neue', Arial, sans-serif;
+            --dark-purple: #390A1A; /* Added dark purple color for social background */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-main);
+            line-height: 1.6;
+            color: #000000 !important;
+            background-color: #fff;
+            font-size: 16px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Research Badges */
+        .research-badges {
+            margin-top: -50px;
+            margin-bottom: 70px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .badges-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .research-badge {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            padding: 20px;
+            width: 160px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .research-badge:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+        
+        .badge-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px;
+            padding: 15px;
+            border-radius: 50%;
+            background-color: #e6f4f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .badge-icon img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .badge-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #15202e;
+            margin-bottom: 5px;
+        }
+        
+        /* Enhanced hero section */
+        .hero {
+            padding: 100px 0 120px;
+            background: linear-gradient(135deg, #e8f5e9 0%, #d4e8d5 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        /* Properly size and contain your profile picture container */
+        .hero-img-container {
+            position: relative;
+            width: 200px; /* Control the size of the container */
+            height: 200px;
+            margin: 0 auto 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            overflow: hidden; /* This will ensure your image stays within the circle */
+        }
+        
+        /* Make sure your profile image is properly contained */
+        .hero-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover; /* This will properly crop the image */
+            position: relative;
+            z-index: 2;
+            border: 3px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .neural-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("images/A.WEBP");
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+            animation: pulse 15s infinite alternate;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.2; }
+            100% { opacity: 0.4; }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+        }
+        
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #15202e, #004e98);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: none;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 1000px;
+            margin: 0 auto 30px;
+            color: #0b0b0b;
+            min-height: 60px; /* Makes space for the typing animation */
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #004e98;
+            color: white;
+            padding: 14px 32px;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #0056a8;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        /* Header styles */
+        header {
+            padding: 30px 0;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 2rem; /* Increased logo size */
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 1.5rem; /* Increased navigation text size */
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Elegant About slideshow */
+        .about-slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .about-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            display: none;
+            transition: opacity 1.5s ease-in-out;
+        }
+        
+        .about-slide.active {
+            opacity: 1;
+            display: block;
+        }
+        
+        .about-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        
+        /* Dots/circles */
+        .about-dots {
+            position: absolute;
+            bottom: 15px;
+            width: 100%;
+            text-align: center;
+            z-index: 10;
+        }
+        
+        .about-dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.6s ease;
+        }
+        
+        .about-dot.active, .about-dot:hover {
+            background-color: #fff;
+        }
+        
+        .fade-in {
+            animation-name: fadeIn;
+            animation-duration: 1.5s;
+        }
+        
+        @keyframes fadeIn {
+            from {opacity: 0}
+            to {opacity: 1}
+        }
+        
+        /* About section */
+        .about {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+            position: relative;
+            font-weight: 600;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+            margin: 15px auto 0;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-img {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .about-img img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+        
+        /* Research section */
+        .research {
+            padding: 80px 0;
+            background-color: var(--light-color);
+        }
+        
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .research-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .research-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .research-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .research-content {
+            padding: 25px;
+        }
+        
+        .research-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        /* Publications section */
+        .publications {
+            padding: 80px 0;
+        }
+        
+        .publication-item {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .publication-item:last-child {
+            border-bottom: none;
+        }
+        
+        .publication-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .publication-meta {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .publication-links a {
+            display: inline-block;
+            margin-right: 15px;
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        
+        .publication-links a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Gallery section */
+        .gallery {
+            padding: 80px 0;
+            background-color: var(--light-color);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        /* Slideshow container */
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            max-height: 500px;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            background-color: #f8f8f8;
+        }
+        
+        /* Specific slide classes */
+        .mySlides1, .mySlides2, .mySlides3 {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .mySlides1 img, .mySlides2 img, .mySlides3 img {
+            width: 100%;
+            height: calc(100% - 40px); /* Adjust for caption space */
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        /* Next & previous buttons */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 30%;
+            width: auto;
+            margin-top: -22px;
+            padding: 14px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0,0,0,0.3);
+            z-index: 10;
+        }
+        
+        /* Position the "next button" to the right */
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+        
+        /* Caption text */
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            background-color: rgba(0,0,0,0.5);
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Fading animation */
+        .fade {
+            animation-name: fade;
+            animation-duration: 2s;
+        }
+        
+        @keyframes fade {
+            from {opacity: .4}
+            to {opacity: 1}
+        }
+        
+        /* Contact section */
+        .contact {
+            padding: 80px 0;
+        }
+        
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .contact-info p {
+            margin-bottom: 15px;
+        }
+        
+        .contact-form {
+            flex: 1;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: var(--font-main);
+            font-size: 1rem;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Social media icons */
+        .social-banner {
+            background-color: var(--dark-purple);
+            padding: 15px 0;
+            text-align: center;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            transition: transform 0.3s;
+        }
+        
+        .social-icon:hover {
+            transform: scale(1.1);
+        }
+        
+        .social-icon img {
+            width: 22px;
+            height: 22px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #390A1A;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .social-links {
+            margin: 20px 0;
+        }
+        
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1rem;
+            text-decoration: none;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .footer-nav {
+            margin-bottom: 20px;
+        }
+        
+        .footer-nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        
+        .footer-nav a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Awards Section Styling */
+        .awards-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .award-card {
+            display: flex;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            padding: 25px;
+            gap: 25px;
+            border-left: 5px solid var(--accent-color);
+        }
+        
+        .award-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .award-icon {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 5px;
+        }
+        
+        .award-badge, .publications-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+        }
+        
+        .award-content {
+            flex: 1;
+        }
+        
+        .award-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+        }
+        
+        .award-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+        
+        .award-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+            color: #666;
+            flex-wrap: wrap;
+        }
+        
+        .award-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .award-content p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .award-btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            margin-top: 5px;
+        }
+        
+        .award-btn:hover {
+            background-color: #5886b7;
+        }
+        
+        .publications-card {
+            border-left: 5px solid #6c5ce7;
+        }
+        
+        /* SVG-based Research Expertise Section Styling */
+        .toolkit {
+            padding: 80px 0;
+            background-color: white; /* White background to match your site */
+        }
+        
+        .toolkit-svg-container {
+            margin: 40px 0;
+            position: relative;
+            overflow-x: auto;
+        }
+        
+        .toolkit-svg-item {
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .toolkit-svg-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .toolkit-details {
+            max-width: 800px;
+            margin: 30px auto;
+            background-color: var(--light-color);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .toolkit-detail {
+            display: none;
+            text-align: center;
+        }
+        
+        .toolkit-detail.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        .toolkit-detail h3 {
+            color: #0b0b0b;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .toolkit-detail p {
+            color: #444;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+        
+        /* Fix for image paths with backslashes */
+        .toolkit-svg-item image {
+            /* Ensures images display properly */
+            object-fit: contain;
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .research-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .social-icons {
+                gap: 20px;
+            }
+            
+            .toolkit-svg-container {
+                overflow-x: scroll;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .award-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .award-meta {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-icons {
+                gap: 15px;
+            }
+        }
+
+        <style>
+/* Enhanced Research Section Styles with Zoom/Flip Effect */
+.research-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.research-card {
+    background-color: transparent;
+    perspective: 1000px;
+    height: 450px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.research-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.research-card:hover .research-card-inner {
+    transform: rotateY(180deg);
+}
+
+.research-card-front, .research-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.research-card-front {
+    background-color: white;
+}
+
+.research-card-back {
+    background-color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.research-img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.research-content {
+    padding: 25px;
+}
+
+.research-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.research-preview {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+/* Alternative hover effect for mobile (optional) */
+@media (max-width: 768px) {
+    .research-card {
+        height: auto;
+    }
+    
+    .research-card-inner {
+        transform-style: flat;
+    }
+    
+    .research-card:hover .research-card-inner {
+        transform: none;
+    }
+    
+    .research-card-back {
+        display: none;
+    }
+    
+    .research-card:hover .research-card-front {
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Social Media Banner -->
+    <div class="social-banner">
+        <div class="container">
+            <div class="social-icons">
+                <a href="https://x.com/AnishaSumith" class="social-icon" target="_blank">
+                    <img src="images/X.jpg" alt="X/Twitter">
+                </a>
+                <a href="https://www.instagram.com/epigenie_girl/" class="social-icon" target="_blank">
+                    <img src="images/insta.jpg" alt="Instagram">
+                </a>
+                <a href="https://www.linkedin.com/in/anisha-s-menon-27976319a/" class="social-icon" target="_blank">
+                    <img src="images/ln.png" alt="LinkedIn">
+                </a>
+                <a href="https://www.researchgate.net/profile/Anisha-S-Menon?ev=hdr_xprf" class="social-icon" target="_blank">
+                    <img src="images/RG.png" alt="ResearchGate">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-container">
+                <a href="#" class="logo">Welcome</a>
+                <nav>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#research">Research</a></li>
+                        <li><a href="sci_blog/SCI-Blog.html" target="_blank">Sci-Blog</a></li>
+                        <li><a href="#publications">Publications</a></li>
+                        <li><a href="#cv">CV</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section with Particles -->
+    <section class="hero">
+        <!-- Neural network background -->
+        <div class="neural-background"></div>
+        
+        <!-- Particles.js container -->
+        <div id="particles-js" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;"></div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-img-container">
+                    <img src="images/Profile_photo_1.jpg" alt="Anisha S Menon" class="hero-img">
+                </div>
+                <h1>Anisha S Menon</h1>
+                <p><span id="typed"></span></p>
+                <a href="#contact" class="btn">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section with Elegant Slideshow -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-img">
+                    <!-- Elegant About Me Slideshow -->
+                    <div class="about-slideshow-container">
+                        <div class="about-slide">
+                            <img src="images/About me/About_Me.jpeg" alt="Sci-Com">
+                        </div>
+                        <div class="about-slide">
+                            <img src="images/About me/Experiments.jpeg" alt="Fun Experimenting">
+                        </div>
+                        <div class="about-slide">
+                            <img src="images/About me/Open.jpeg" alt="Having fun with 'Brains'">
+                        </div>
+                        <div class="about-slide">
+                            <img src="images/About me/Open_1.jpeg" alt="Love Science-ing">
+                        </div>
+                        <div class="about-slide">
+                            <img src="images/About me/Crowd.jpeg" alt="Future Scientists">
+                        </div>
+                        <!-- Dots/circles -->
+                        <div class="about-dots">
+                            <span class="about-dot" onclick="currentAboutSlide(1)"></span>
+                            <span class="about-dot" onclick="currentAboutSlide(2)"></span>
+                            <span class="about-dot" onclick="currentAboutSlide(3)"></span>
+                            <span class="about-dot" onclick="currentAboutSlide(4)"></span>
+                            <span class="about-dot" onclick="currentAboutSlide(5)"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <p>I am a Neuroscience Researcher at CSIR-Centre for Cellular and Molecular Biology (CCMB) specializing in CNS axon regeneration. My research focuses on understanding the Epigenetic mechanisms of neural repair and regeneration after injury.</p>
+                    <p>My work combines advanced imaging techniques, single-cell genomics, molecular biology, Animal surgeries and behavioral assessment to develop a comprehensive understanding of neural regeneration processes in adult mouse model organisms. I'm particularly interested in identifying and targeting the intrinsic barriers that could inhibit recovery after spinal cord injury.</p>
+                    <p>When I'm not in the lab, I enjoy science communication and mentoring young researchers interested in neuroscience. I believe in making complex scientific concepts accessible to broader audiences.</p>
+                    <p>Check out my article <a href="https://scitales.ccmb.res.in/will-neurons-grow-through-what-they-go-through/" target="_blank">Will neurons grow through what they go through?</a> on SciTales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Research Section with Zoom Effect -->
+<section id="research" class="research">
+    <div class="container">
+        <h2 class="section-title">Research</h2>
+        <div class="research-grid">
+            <div class="research-card">
+                <div class="research-card-inner">
+                    <div class="research-card-front">
+                        <img src="images/Axon_new.png" alt="Axon Regeneration" class="research-img">
+                        <div class="research-content">
+                            <h3>Axon Regeneration in Mammalian CNS</h3>
+                            <p class="research-preview">Our lab focuses on understanding the cellular and molecular mechanisms that control axon regeneration after injury.</p>
+                        </div>
+                    </div>
+                    <div class="research-card-back">
+                        <div class="research-content">
+                            <h3>Axon Regeneration in Mammalian CNS</h3>
+                            <p>Our lab focuses on molecular mechanisms that can effectively promote central nervous system axon regeneration following injury. I investigate the key transcriptional machinery that activates intrinsic regenerative potential, enabling axons in the spinal cord to grow beyond injury sites.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="research-card">
+                <div class="research-card-inner">
+                    <div class="research-card-front">
+                        <img src="images/Epigenetic.png" alt="Epigenetic Regulation" class="research-img">
+                        <div class="research-content">
+                            <h3>Epigenetic Regulation</h3>
+                            <p class="research-preview">Understanding the link between chromatin accessibility and the regeneration ability of Central Nervous System axons.</p>
+                        </div>
+                    </div>
+                    <div class="research-card-back">
+                        <div class="research-content">
+                            <h3>Epigenetic Regulation</h3>
+                            <p>We investigates how chromatin accessibility restricts the regeneration potential of central nervous system neurons. To study chromatin remodeling, we use snATAC sequencing techniques and Cut and Run sequencing to analyze histone marks and modifications.</p> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="research-card">
+                <div class="research-card-inner">
+                    <div class="research-card-front">
+                        <img src="images/Domains.JPG" alt="3D Genome Topology" class="research-img">
+                        <div class="research-content">
+                            <h3>3D Genome Topology</h3>
+                            <p class="research-preview">Exploring how three-dimensional organization changes upon Central Nervous System axon injury.</p>
+                        </div>
+                    </div>
+                    <div class="research-card-back">
+                        <div class="research-content">
+                            <h3>3D Genome Topology</h3>
+                            <p>We investigate how the three-dimensional organization of the genome changes upon CNS injury and how we can effectively modulate these changes to promote axon growth and regeneration. Using advanced techniques like Hi-C, we analyze chromosomal interactions within the genome.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    
+    <!-- Research Toolkit Section with Custom Icons -->
+<section id="toolkit" class="toolkit">
+    <div class="container">
+        <h2 class="section-title">Research Expertise</h2>
+        
+        <div class="toolkit-svg-container">
+            <svg width="100%" height="300" viewBox="0 0 1500 300" xmlns="http://www.w3.org/2000/svg">
+                <!-- Background Rectangle -->
+                <rect x="10" y="10" width="1500" height="230" fill="#1E3F66" rx="10" ry="10" stroke="#BCD2E8" stroke-width="2"/>
+                
+                <!-- Connector Lines (decorative) -->
+                <path d="M 240 125 L 360 125" stroke="#BCD2E8" stroke-width="1" stroke-dasharray="4,4"/>
+                <path d="M 480 125 L 600 125" stroke="#BCD2E8" stroke-width="1" stroke-dasharray="4,4"/>
+                <path d="M 720 125 L 840 125" stroke="#BCD2E8" stroke-width="1" stroke-dasharray="4,4"/>
+                <path d="M 960 125 L 1080 125" stroke="#BCD2E8" stroke-width="1" stroke-dasharray="4,4"/>
+                <path d="M 1200 125 L 1320 125" stroke="#BCD2E8" stroke-width="1" stroke-dasharray="4,4"/>
+                
+                
+                <!-- Item 1: Molecular biology -->
+                <g class="toolkit-svg-item" id="molecular-biology">
+                    <rect x="100" y="45" width="160" height="160" fill="black" stroke="#BCD2E8" stroke-width="2"/>
+                    <image href="images/Reseach Expertise/molecular.webp" x="130" y="75" width="100" height="100"/>
+                    <text x="180" y="230" text-anchor="middle" font-size="16" font-family="Arial, sans-serif" fill="#BCD2E8">Molecular Biology</text>
+                </g>
+
+                <!-- Item 2: Mouse models -->
+                  <g class="toolkit-svg-item" id="mouse-models">
+                    <rect x="340" y="45" width="160" height="160" fill="black" stroke="#BCD2E8" stroke-width="2"/>
+                    <image href="images/Reseach Expertise/Mouse.png" x="370" y="75" width="100" height="100"/>
+                    <text x="420" y="230" text-anchor="middle" font-size="16" font-family="Arial, sans-serif" fill="#BCD2E8">Mouse Injury Model</text>
+                </g>
+                
+                <!-- Item 3: Single Cell Genomics -->
+                <g class="toolkit-svg-item" id="single-cell">
+                    <rect x="580" y="45" width="160" height="160" fill="black" stroke="#BCD2E8" stroke-width="2"/>
+                    <image href="images/Reseach Expertise/Genomics.webp" x="610" y="75" width="100" height="100"/>
+                    <text x="660" y="230" text-anchor="middle" font-size="16" font-family="Arial, sans-serif" fill="#BCD2E8">Single Cell Genomics</text>
+                </g>
+                
+                <!-- Item 4: Cell Culture -->
+                <g class="toolkit-svg-item" id="cell-culture">
+                    <rect x="820" y="45" width="160" height="160" fill="black" stroke="#BCD2E8" stroke-width="2"/>
+                    <image href="images/Reseach Expertise/Cell.webp" x="850" y="75" width="100" height="100"/>
+                    <text x="900" y="230" text-anchor="middle" font-size="16" font-family="Arial, sans-serif" fill="#BCD2E8">Cell Culture</text>
+                </g>
+                
+                <!-- Item 5: Imaging -->
+                <g class="toolkit-svg-item" id="imaging">
+                    <rect x="1060" y="45" width="160" height="160" fill="black" stroke="#BCD2E8" stroke-width="2"/>
+                    <image href="images/Reseach Expertise/Imaging.jpg" x="1090" y="75" width="100" height="100"/>
+                    <text x="1140" y="230" text-anchor="middle" font-size="16" font-family="Arial, sans-serif" fill="#BCD2E8">Imaging</text>
+                </g>
+                
+                <!-- Item 6: Bioinformatics -->
+                <g class="toolkit-svg-item" id="bioinformatics">
+                    <rect x="1300" y="45" width="160" height="160" fill="black" stroke="#BCD2E8" stroke-width="2"/>
+                    <image href="images/Reseach Expertise/Bioinfo.webp" x="1330" y="75" width="100" height="100"/>
+                    <text x="1380" y="230" text-anchor="middle" font-size="16" font-family="Arial, sans-serif" fill="#BCD2E8">Bioinformatics</text>
+                </g>
+            </svg>
+        </div>
+        
+        <!-- Interactive Content (appears on hover/click) -->
+        <div class="toolkit-details">
+            <div class="toolkit-detail" id="molecular-biology-detail">
+                <h3>Molecular Biology</h3>
+                <p>Proficient in techniques such as qPCR, cloning, Western blotting, and immunohistochemistry to investigate molecular mechanisms of neural regeneration.</p>
+            </div>
+            
+            <div class="toolkit-detail" id="mouse-models-detail">
+                <h3>Mouse Injury Model</h3>
+                <p>Expertise in spinal cord injury models, Stereotaxic Injections, and behavioral assessment methodologies to evaluate recovery after CNS injury.</p>
+            </div>
+            
+            <div class="toolkit-detail" id="single-cell-detail">
+                <h3>Single Cell Genomics</h3>
+                <p>Experience with single-cell RNA, ATAC, Cut & Run, Hi-C sequencing to identify cell-type specific responses to injury and potential therapeutic targets.</p>
+            </div>
+            
+            <div class="toolkit-detail" id="cell-culture-detail">
+                <h3>Cell Culture</h3>
+                <p>Skilled in primary neuron cultures, maintenance of neural cell lines, and in vitro models of axon growth and regeneration.</p>
+            </div>
+            
+            <div class="toolkit-detail" id="imaging-detail">
+                <h3>Imaging</h3>
+                <p>Trained in confocal microscopy to assess spinal cord regeneration and brain signals. Expertise in fluorescence imaging and 3D reconstruction of neural tissues.</p>
+            </div>
+            
+            <div class="toolkit-detail" id="bioinformatics-detail">
+                <h3>Bioinformatics</h3>
+                <p>Computational analysis of genomic data, pathway analysis, and visualization of complex datasets related to neural regeneration.</p>
+            </div>
+        </div>
+    </div>
+</section>
+      
+   <!-- Awards and Publications Section -->
+<section id="publications" class="publications">
+    <div class="container">
+        <h2 class="section-title">Awards & Publications</h2>
+        
+        <div class="awards-container">
+            <!-- Future Publications Card -->
+            <div class="award-card publications-card">
+                <div class="award-icon">
+                    <i class="publications-icon">📚</i>
+                </div>
+                <div class="award-content">
+                    <h3>Upcoming Research</h3>
+                    <h4>Future Publications</h4>
+                    <div class="award-meta">
+                        <span><i class="status-icon">🔬</i> Research in Progress</span>
+                    </div>
+                    <p>Publications expected in the coming years as the research progresses on axon regeneration and epigenetic regulation.</p>
+                    <a href="#" class="award-btn">Download Paper (PDF)</a>
+                </div>
+            </div>
+            
+            <!-- Award Card 1 -->
+            <div class="award-card">
+                <div class="award-icon">
+                    <i class="award-badge">🏆</i>
+                </div>
+                <div class="award-content">
+                    <h3>Best Poster Award</h3>
+                    <h4>Indian Academy of Neuroscience Conference 2023</h4>
+                    <div class="award-meta">
+                        <span><i class="location-icon">📍</i> National Level Conference</span>
+                        <span><i class="date-icon">📅</i> October 2023</span>
+                    </div>
+                    <p>Recognized for Best Poster presentation on Neuroscience Conference</p>
+                </div>
+            </div>
+            
+            <!-- Award Card 2 -->
+            <div class="award-card">
+                <div class="award-icon">
+                    <i class="award-badge">🥈</i>
+                </div>
+                <div class="award-content">
+                    <h3>Second Prize for Best Poster</h3>
+                    <h4>CMMDR International Conference 2024</h4>
+                    <div class="award-meta">
+                        <span><i class="location-icon">📍</i> International Conference</span>
+                        <span><i class="date-icon">📅</i> February 2024</span>
+                    </div>
+                    <p>Awarded for  research on targetted epigenetic mechanisms in CNS axon repair following injury.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    
+    <!-- CV Section -->
+    <section id="cv" class="publications">
+        <div class="container">
+            <h2 class="section-title">Curriculum Vitae</h2>
+            <p style="text-align: center; margin-bottom: 30px;">Download my complete CV for a detailed overview of my academic background, research experience, and achievements.</p>
+            <div style="text-align: center;">
+                <a href="images/Anisha%20CV%20.pdf" class="btn">Download CV (PDF)</a>
+            </div>
+        </div>
+    </section>
+        
+    <!-- Gallery Section with Slideshow and Subheadings -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2 class="section-title">Lab Gallery</h2>
+            <div class="gallery-grid">
+                <!-- First slideshow - Lab Conferences -->
+                <div class="slideshow-container">
+                    <h3 style="text-align: center; margin-bottom: 15px; color: var(--primary-color);">Lab Conferences</h3>
+                    <div class="mySlides1 fade">
+                        <img src="images/Lab Gallery/IAN_1.jpeg" alt="Lab Conference 1">
+                        <div class="text">Indian Academy of Neuroscience 2023</div>
+                    </div>
+                    <div class="mySlides1 fade">
+                        <img src="images/Lab Gallery/CMMDR_1.jpeg" alt="Lab Conference 2">
+                        <div class="text">Cellular And Molecular Mechanisms of Development and Regeneration 2024</div>
+                    </div>
+                    <div class="mySlides1 fade">
+                        <img src="images/Lab Gallery/HYSCI.jpeg" alt="Lab Conference 3">
+                        <div class="text">Hyderabad Science Conference 2024</div>
+                    </div>
+                    <div class="mySlides1 fade">
+                        <img src="images/Lab Gallery/IAN-24.jpeg" alt="Lab Conference 4">
+                        <div class="text">Indian Academy of Neuroscience 2024</div>
+                    </div>
+                    <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+                </div>
+                
+                <!-- Second slideshow - Lab Presentations -->
+                <div class="slideshow-container">
+                    <h3 style="text-align: center; margin-bottom: 15px; color: var(--primary-color);">Lab Presentations</h3>
+                    <div class="mySlides2 fade">
+                        <img src="images/Lab Gallery/IAN.jpeg" alt="Lab Presentation 1">
+                        <div class="text">Indian Academy of Neuroscience 2023</div>
+                    </div>
+                    <div class="mySlides2 fade">
+                        <img src="images/Lab Gallery/CMMDR.jpeg" alt="Lab Presentation 2">
+                        <div class="text">Cellular And Molecular Mechanisms of Development and Regeneration 2024</div>
+                    </div>
+                    <div class="mySlides2 fade">
+                        <img src="images/Lab Gallery/hy_p.jpeg" alt="Lab Presentation 3">
+                        <div class="text">Hyderabad Science Conference 2024</div>
+                    </div>
+                    <div class="mySlides2 fade">
+                        <img src="images/Lab Gallery/ian_24_p.jpeg" alt="Lab Presentation 4">
+                        <div class="text">Indian Academy of Neuroscience 2024</div>
+                    </div>
+                    <a class="prev" onclick="plusSlides(-1, 1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1, 1)">&#10095;</a>
+                </div>
+                
+                <!-- Third slideshow - Lab Celebrations -->
+                <div class="slideshow-container">
+                    <h3 style="text-align: center; margin-bottom: 15px; color: var(--primary-color);">Lab Celebrations</h3>
+                    <div class="mySlides3 fade">
+                        <img src="images/Lab Gallery/Lab_joining.jpeg" alt="Lab Celebration 1">
+                        <div class="text">Lab Joining 2023</div>
+                    </div>
+                    <div class="mySlides3 fade">
+                        <img src="images/Lab Gallery/Onam.jpeg" alt="Lab Celebration 2">
+                        <div class="text">Onam Celebration</div>
+                    </div>
+                    <div class="mySlides3 fade">
+                        <img src="images/Lab Gallery/christmas.jpeg" alt="Lab Celebration 3">
+                        <div class="text">Christmas Celebration</div>
+                    </div>
+                    <div class="mySlides3 fade">
+                        <img src="images/Lab Gallery/SRF.jpeg" alt="Lab Celebration 4">
+                        <div class="text">IV Lab Senior Researcher</div>
+                    </div>
+                    <a class="prev" onclick="plusSlides(-1, 2)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1, 2)">&#10095;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p><strong>Email:</strong> anisha@ccmb.res.in</p>
+                    <p><strong>Lab:</strong> Dr Ishwariya Venkatesh, <a href="https://venkateshlab.science/">Venkatesh Lab</a>  CSIR-CCMB</p>
+                    <p><strong>Address:</strong><br>
+                    Centre for Cellular and Molecular Biology (CSIR-CCMB)<br>
+                    Habsiguda, Hyderabad<br>
+                    Telangana 500007, India</p>
+                    <p>Feel free to reach out regarding research collaborations, speaking engagements, or questions about my work. I'm always open to discussing new ideas and potential partnerships.</p>
+                </div>
+                <div class="contact-form">
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-nav">
+                <a href="#about">About</a>
+                <a href="#research">Research</a>
+                <a href="https://yourwebsite.com/sci-Blog" target="_blank">Sci-Blog</a>
+                <a href="#publications">Publications</a>
+                <a href="#cv">CV</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="social-links">
+                <a href="#">instagram</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Twitter</a>
+                <a href="#">ResearchGate</a>
+            </div>
+            <p>&copy; 2025 Anisha S Menon. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Wait for document to be ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Gallery slideshows
+            let slideIndex = [1, 1, 1];
+            let slideId = ["mySlides1", "mySlides2", "mySlides3"];
+            
+            // Initialize all slideshows
+            showSlides(1, 0);
+            showSlides(1, 1);
+            showSlides(1, 2);
+            
+            // Next/previous controls
+            window.plusSlides = function(n, slideshow) {
+                showSlides(slideIndex[slideshow] += n, slideshow);
+            }
+            
+            function showSlides(n, slideshow) {
+                let i;
+                let slides = document.getElementsByClassName(slideId[slideshow]);
+                
+                if (n > slides.length) {slideIndex[slideshow] = 1}
+                if (n < 1) {slideIndex[slideshow] = slides.length}
+                
+                // Hide all slides in this slideshow
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                
+                // Show the active slide
+                slides[slideIndex[slideshow]-1].style.display = "block";
+            }
+            
+            // Initialize About Me slideshow
+            let aboutSlideIndex = 1;
+            showAboutSlides(aboutSlideIndex);
+            
+            // Thumbnail image controls for About Me
+            window.currentAboutSlide = function(n) {
+                showAboutSlides(aboutSlideIndex = n);
+            }
+            
+            function showAboutSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName("about-slide");
+                let dots = document.getElementsByClassName("about-dot");
+                
+                if (n > slides.length) {aboutSlideIndex = 1}
+                if (n < 1) {aboutSlideIndex = slides.length}
+                
+                // Hide all slides
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                    slides[i].classList.remove("active");
+                }
+                
+                // Reset all dots
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].classList.remove("active");
+                }
+                
+                // Show active slide and dot
+                slides[aboutSlideIndex-1].style.display = "block";
+                slides[aboutSlideIndex-1].classList.add("active");
+                dots[aboutSlideIndex-1].classList.add("active");
+            }
+            
+            // Auto-rotate the About Me slides
+            function autoRotateAboutSlides() {
+                aboutSlideIndex++;
+                if (aboutSlideIndex > document.getElementsByClassName("about-slide").length) {
+                    aboutSlideIndex = 1;
+                }
+                showAboutSlides(aboutSlideIndex);
+                setTimeout(autoRotateAboutSlides, 4000); // Change image every 4 seconds
+            }
+            
+            // Automatic gallery slideshow functionality
+            function autoSlideshow() {
+                for (let i = 0; i < 3; i++) {
+                    plusSlides(1, i);
+                }
+                setTimeout(autoSlideshow, 5000); // Change image every 5 seconds
+            }
+            
+            // JavaScript for Research Toolkit interaction
+            const toolkitItems = document.querySelectorAll('.toolkit-svg-item');
+            const toolkitDetails = document.querySelectorAll('.toolkit-detail');
+            
+            // Set first item as active by default
+            if (toolkitDetails.length > 0) {
+                toolkitDetails[0].classList.add('active');
+            }
+            
+            // Add click event for each toolkit item
+            toolkitItems.forEach((item, index) => {
+                item.addEventListener('click', function() {
+                    // Hide all details
+                    toolkitDetails.forEach(detail => {
+                        detail.classList.remove('active');
+                    });
+                    
+                    // Show the corresponding detail
+                    if (toolkitDetails[index]) {
+                        toolkitDetails[index].classList.add('active');
+                    }
+                });
+            });
+            
+            // Initialize particles.js
+            if (typeof particlesJS !== 'undefined') {
+                particlesJS("particles-js", {
+                    "particles": {
+                        "number": {
+                            "value": 80,
+                            "density": {
+                                "enable": true,
+                                "value_area": 800
+                            }
+                        },
+                        "color": {
+                            "value": "#6a98c9"
+                        },
+                        "shape": {
+                            "type": "circle",
+                            "stroke": {
+                                "width": 0,
+                                "color": "#000000"
+                            }
+                        },
+                        "opacity": {
+                            "value": 0.5,
+                            "random": false
+                        },
+                        "size": {
+                            "value": 3,
+                            "random": true
+                        },
+                        "line_linked": {
+                            "enable": true,
+                            "distance": 150,
+                            "color": "#6a98c9",
+                            "opacity": 0.4,
+                            "width": 1
+                        },
+                        "move": {
+                            "enable": true,
+                            "speed": 2,
+                            "direction": "none",
+                            "random": false,
+                            "straight": false,
+                            "out_mode": "out",
+                            "bounce": false
+                        }
+                    },
+                    "interactivity": {
+                        "detect_on": "canvas",
+                        "events": {
+                            "onhover": {
+                                "enable": true,
+                                "mode": "grab"
+                            },
+                            "resize": true
+                        },
+                        "modes": {
+                            "grab": {
+                                "distance": 140,
+                                "line_linked": {
+                                    "opacity": 1
+                                }
+                            },
+                            "push": {
+                                "particles_nb": 4
+                            }
+                        }
+                    },
+                    "retina_detect": true
+                });
+            }
+            
+            // Initialize typed.js
+            if (typeof Typed !== 'undefined') {
+                var typed = new Typed('#typed', {
+                    strings: [
+                        "Neuroscience Researcher | PhD at CSIR-CCMB",
+                        "Exploring Axon Regeneration & Neural Repair in Spinal Cord Injury",
+                        "Investigating Epigenetic Mechanisms in CNS Neurons",
+                        "Lab of Axon Regeneration | CSIR-CCMB"
+                    ],
+                    typeSpeed: 50,
+                    backSpeed: 30,
+                    backDelay: 2000,
+                    startDelay: 500,
+                    loop: true
+                });
+            }
+            
+            // Start all automatic functions
+            setTimeout(autoRotateAboutSlides, 2000);
+            setTimeout(autoSlideshow, 5000);
+        });
+    </script>
+</body>
+</html>

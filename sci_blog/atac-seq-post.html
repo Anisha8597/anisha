@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenges faced in Single-Cell ATAC-seq Studies of mouse brain tissue | Anisha S Menon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Color variables */
+        :root {
+            --primary-color: #15202e;
+            --secondary-color: #004e98;
+            --accent-color: #6a98c9;
+            --light-color: #e6f4f5;
+            --dark-color: #333;
+            --text-color: #333;
+            --font-main: 'Helvetica Neue', Arial, sans-serif;
+            --dark-purple: #390A1A;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-main);
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #fff;
+            font-size: 16px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        /* Base logo styling */
+        .logo {
+            display: inline-block;
+            width: 70px;
+            height: 70px;
+            overflow: hidden;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* Logo image styling */
+        .logo img {
+            width: 100%;
+            height: auto;
+            max-height: 70px;
+            object-fit: contain;
+            vertical-align: middle;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Blog post styles */
+        .blog-post {
+            padding: 60px 0;
+        }
+        
+        .post-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .post-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .post-tag {
+            display: inline-block;
+            background-color: #2196F3; /* Blue for research tag */
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .post-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        
+        .post-meta {
+            display: flex;
+            justify-content: center;
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+        
+        .post-meta span {
+            margin: 0 10px;
+        }
+        
+        .post-featured-img {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        /* Content layout - text left, image right */
+        .post-content-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .post-text {
+            flex: 3;
+            min-width: 300px;
+        }
+        
+        .post-image {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .post-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        /* Post content styling */
+        .post-content h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin: 40px 0 20px;
+        }
+        
+        .post-content h3 {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin: 30px 0 15px;
+        }
+        
+        .post-content p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .post-content ul, .post-content ol {
+            margin-bottom: 20px;
+            padding-left: 30px;
+        }
+        
+        .post-content li {
+            margin-bottom: 10px;
+        }
+        
+        .post-content blockquote {
+            border-left: 4px solid var(--accent-color);
+            padding-left: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #555;
+        }
+        
+        .technical-note {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+            border-left: 4px solid #2196F3;
+        }
+        
+        .code-block {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        
+        /* Figure styling */
+        .figure {
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .figure img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .figure-caption {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+        }
+        
+        /* Author section */
+        .author-section {
+            display: flex;
+            align-items: center;
+            margin-top: 50px;
+            padding: 30px;
+            background-color: var(--light-color);
+            border-radius: 8px;
+        }
+        
+        .author-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+        
+        .author-bio h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        /* Related posts */
+        .related-posts {
+            margin-top: 60px;
+        }
+        
+        .related-posts h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .related-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .related-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .related-img {
+            height: 180px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .related-content {
+            padding: 20px;
+        }
+        
+        .related-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .related-meta {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        /* Comments section */
+        .comments-section {
+            margin-top: 60px;
+        }
+        
+        .comments-section h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+        }
+        
+        .comment-form textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .comment-form input[type="text"],
+        .comment-form input[type="email"] {
+            width: calc(50% - 10px);
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+        
+        .comment-form input[type="text"] {
+            margin-right: 20px;
+        }
+        
+        .comment-form button {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .comment-form button:hover {
+            background-color: #0056a8;
+        }
+        
+        /* Share buttons */
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .share-buttons a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            margin: 0 10px;
+            border-radius: 50%;
+            background-color: var(--light-color);
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .share-buttons a:hover {
+            background-color: var(--accent-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-nav {
+            margin-bottom: 20px;
+        }
+        
+        .footer-nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        
+        .footer-nav a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Responsive styles */
+        @media screen and (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .post-title {
+                font-size: 2rem;
+            }
+            
+            .post-meta {
+                flex-direction: column;
+            }
+            
+            .post-meta span {
+                margin: 5px 0;
+            }
+            
+            .post-content-flex {
+                flex-direction: column-reverse;
+            }
+            
+            .author-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .author-img {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .comment-form input[type="text"],
+            .comment-form input[type="email"] {
+                width: 100%;
+                margin-right: 0;
+            }
+            
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-container">
+                <a href="index.html" class="logo">
+                    <img src="images/LoA.webp" alt="SCI-BLOG by Anisha S Menon">
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Main Site</a></li>
+                        <li><a href="SCI-Blog.html#blog">Blog</a></li>
+                        <li><a href="SCI-Blog.html#talks">Talks & Workshops</a></li>
+                        <li><a href="SCI-Blog.html#resources">Resources</a></li>
+                        <li><a href="SCI-Blog.html#newsletter">Newsletter</a></li>
+                        <li><a href="SCI-Blog.html#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Blog Post Content -->
+    <section class="blog-post">
+        <div class="container">
+            <div class="post-container">
+                <div class="post-header">
+                    <span class="post-tag">Research Updates</span>
+                    <h1 class="post-title">Challenges faced in Single-Cell ATAC-seq Studies of mouse brain tissue</h1>
+                    <div class="post-meta">
+                        <span><i class="far fa-calendar"></i> October 15, 2024</span>
+                        <span><i class="far fa-clock"></i> 4 min read</span>
+                    </div>
+                </div>
+                
+                <!-- Main content with left text, right image layout -->
+                <div class="post-content">
+                    <div class="post-content-flex">
+                        <div class="post-text">
+                            <p>Single-cell Assay for Transposase-Accessible Chromatin using sequencing (scATAC-seq) has revolutionized our understanding of gene regulation at the cellular level. However, applying this technique to brain tissue, particularly in the context of injury models, presents unique challenges that our laboratory has been working to overcome.</p>
+                            
+                            <p>In this post, I'll share some insights from our experiences with scATAC-seq in mouse brain tissue, specifically focusing on the technical hurdles we've encountered and solutions we've developed to generate meaningful data about neuron-specific responses to injury.</p>
+                        </div>
+                        <div class="post-image">
+                            <img src="images/blog2.jpg" alt="ATAC-seq visualization">
+                        </div>
+                    </div>
+                    
+                    <h2>The Promise of Single-Cell Chromatin Accessibility</h2>
+                    <p>Chromatin accessibility—regions of DNA that are open and available for binding by transcription factors—provides critical insights into gene regulation mechanisms. Traditional bulk ATAC-seq measures the average accessibility across many cells, potentially masking important cell-type-specific responses. Single-cell approaches allow us to identify:</p>
+                    <ul>
+                        <li>Cell-type-specific regulatory elements that might be diluted in bulk analyses</li>
+                        <li>Rare cell populations with unique chromatin landscapes</li>
+                        <li>Heterogeneous responses to injury within seemingly uniform cell populations</li>
+                        <li>Regulatory trajectories as cells transition between states during recovery</li>
+                    </ul>
+                    
+                    <h2>Technical Challenges with Brain Tissue</h2>
+                    <p>While scATAC-seq has been successful in many tissue types, neural tissue presents specific challenges:</p>
+                    
+                    <h3>1. Cell Dissociation Difficulties</h3>
+                    <p>Neurons have complex morphologies with extensive processes. Dissociating them into single-cell suspensions without damaging nuclear integrity is challenging. We've found that:</p>
+                    <ul>
+                        <li>Gentler enzymatic dissociation protocols help preserve cell viability</li>
+                        <li>Temperature control during dissociation is critical, with cold temperatures helping reduce stress responses</li>
+                        <li>Minimizing mechanical disruption reduces chromatin artifacts from cellular stress</li>
+                    </ul>
+                    
+                    <div class="technical-note">
+                        <p><strong>Protocol Optimization:</strong> We've had success with a modified protocol using a combination of papain digestion at reduced concentrations (10 units/mL) and careful trituration with wide-bore pipette tips. Processing tissues at 4°C whenever possible has significantly improved nuclear integrity.</p>
+                    </div>
+                    
+                    <h3>2. Low Cell Recovery from Injured Tissue</h3>
+                    <p>Injured brain or spinal cord tissue presents additional challenges. The inflammatory environment and cell death lead to:</p>
+                    <ul>
+                        <li>Reduced cell yields compared to healthy tissue</li>
+                        <li>Higher debris content that can interfere with microfluidic systems</li>
+                        <li>Stress-induced chromatin changes that may confound injury-specific signals</li>
+                    </ul>
+                    
+                    <h3>3. Separating Biological Signal from Technical Noise</h3>
+                    <p>One of the most significant challenges is distinguishing true biological differences from technical artifacts. We've implemented several approaches:</p>
+                    <ul>
+                        <li>Including spike-in controls with known accessibility profiles</li>
+                        <li>Developing computational methods to account for batch effects</li>
+                        <li>Validating key findings with orthogonal approaches like CUT&RUN or ChIP-seq</li>
+                    </ul>
+                    
+                    <div class="figure">
+                        <img src="images/atac-seq-workflow.jpg" alt="ATAC-seq workflow">
+                        <p class="figure-caption">Figure 1: Optimized workflow for scATAC-seq from neural tissue. From tissue dissociation through library preparation and bioinformatic analysis.</p>
+                    </div>
+                    
+                    <h2>Key Insights from Our Studies</h2>
+                    <p>Despite these challenges, our persistence has yielded several important findings:</p>
+                    
+                    <h3>Cell-Type Specific Responses to Injury</h3>
+                    <p>We've identified distinct chromatin accessibility changes in different neuronal subtypes following injury. Excitatory neurons show dramatic remodeling at enhancers associated with regeneration-related genes, while inhibitory neurons exhibit more subtle changes primarily at promoter regions.</p>
+                    
+                    <h3>Temporal Dynamics of Accessibility</h3>
+                    <p>By sampling at multiple timepoints post-injury (acute, subacute, and chronic phases), we've mapped the temporal progression of chromatin accessibility changes. This has revealed transient opening of developmental pathways during the subacute phase that may represent critical windows for therapeutic intervention.</p>
+                    
+                    <h3>Integration with Other Modalities</h3>
+                    <p>Perhaps most valuably, we've been able to integrate our scATAC-seq data with single-cell transcriptomics to build comprehensive models of gene regulation following neural injury. This multi-modal approach has identified key transcription factors that may coordinate the injury response.</p>
+                    
+                    <div class="technical-note">
+                        <p><strong>Bioinformatic Note:</strong> For researchers working in this area, we've found that the ArchR package provides excellent tools for scATAC-seq analysis of neural tissue, particularly when working with sparse datasets typical of injury models. Trajectory inference methods like those implemented in Monocle 3 have been valuable for ordering cells along pseudotime trajectories of injury response.</p>
+                    </div>
+                    
+                    <h2>Future Directions</h2>
+                    <p>Building on our current work, we're exploring several exciting avenues:</p>
+                    <ul>
+                        <li>Applying single-cell multiome approaches (simultaneous measurement of accessibility and gene expression in the same cell) to neural injury models</li>
+                        <li>Developing spatial epigenomic methods to maintain tissue context while assessing chromatin state</li>
+                        <li>Using CRISPR techniques to validate the functionality of injury-responsive regulatory elements</li>
+                    </ul>
+                    
+                    <p>The challenges of applying scATAC-seq to neural tissue are substantial, but the insights gained make the effort worthwhile. As technology continues to improve, particularly in areas like sample preparation and computational analysis, we anticipate even richer datasets that will further illuminate the epigenetic basis of neural injury and repair.</p>
+                    
+                    <!-- Author section -->
+                    <div class="author-section">
+                        <img src="images/author.jpg" alt="Anisha S Menon" class="author-img">
+                        <div class="author-bio">
+                            <h3>About Anisha S Menon</h3>
+                            <p>PhD candidate studying neural regeneration and epigenetic mechanisms following spinal cord injury. Passionate about applying cutting-edge genomic technologies to understand the molecular basis of neural repair.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Share buttons -->
+                    <div class="share-buttons">
+                        <p>Share this post:</p>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="far fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Related posts -->
+                <div class="related-posts">
+                    <h2>Related Posts</h2>
+                    <div class="related-grid">
+                        <!-- Related post 1 -->
+                        <div class="related-card">
+                            <img src="images/blog6.jpg" alt="Research Methods" class="related-img">
+                            <div class="related-content">
+                                <h3>Optimizing Mouse Models for Spinal Cord Injury Research</h3>
+                                <div class="related-meta">March 1, 2025 • 8 min read</div>
+                                <a href="#" class="read-more">Read Post →</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Related post 2 -->
+                        <div class="related-card">
+                            <img src="images/blog4.jpg" alt="Brain Research" class="related-img">
+                            <div class="related-content">
+                                <h3>The Promise of Genomics in Understanding Brain Injury</h3>
+                                <div class="related-meta">January 31, 2025 • 7 min read</div>
+                                <a href="#" class="read-more">Read Post →</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Related post 3 -->
+                        <div class="related-card">
+                            <img src="images/IAN_24.png" alt="Conference" class="related-img">
+                            <div class="related-content">
+                                <h3>Reflections from the Neuroscience Conference (IAN) 2024</h3>
+                                <div class="related-meta">November 12-14, 2024 • 6 min read</div>
+                                <a href="ian-conference-2024.html" class="read-more">Read Post →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Comments section -->
+                <div class="comments-section">
+                    <h2>Leave a Comment</h2>
+                    <form class="comment-form">
+                        <textarea placeholder="Your comment..."></textarea>
+                        <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+                            <input type="text" placeholder="Your Name" style="flex: 1; min-width: 250px;">
+                            <input type="email" placeholder="Your Email" style="flex: 1; min-width: 250px;">
+                        </div>
+                        <button type="submit">Post Comment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-nav">
+                <a href="index.html">Main Site</a>
+                <a href="SCI-Blog.html#blog">Blog</a>
+                <a href="SCI-Blog.html#talks">Talks</a>
+                <a href="SCI-Blog.html#resources">Resources</a>
+                <a href="SCI-Blog.html#newsletter">Newsletter</a>
+                <a href="SCI-Blog.html#contact">Contact</a>
+            </div>
+            <p>&copy; 2025 Anisha S Menon. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript for sticky header effect -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.querySelector('header');
+            
+            function toggleStickyHeader() {
+                if (window.scrollY > 100) {
+                    header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+                } else {
+                    header.style.boxShadow = 'none';
+                }
+            }
+            
+            window.addEventListener('scroll', toggleStickyHeader);
+        });
+    </script>
+</body>
+</html>

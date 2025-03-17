@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Years Into My PhD Journey | Anisha S Menon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Modern Vibrant Color Palette - Matching SCI-Blog */
+        :root {
+            --primary-color: #0c0128;      /* Vibrant purple */
+            --secondary-color: #3a0ca3;    /* Deeper purple */
+            --accent-color-1: #f72585;     /* Vibrant pink */
+            --accent-color-2: #4cc9f0;     /* Bright blue */
+            --accent-color-3: #7209b7;     /* Rich purple */
+            --light-color: #f8f9fa;        /* Off-white */
+            --dark-color: #212529;         /* Dark gray (almost black) */
+            --text-color: #212529;         /* Dark gray for text */
+            --font-main: 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-main);
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #fff;
+            font-size: 16px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header styles */
+        header {
+            background-color: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        /* Base logo styling */
+        .logo {
+            display: inline-block;
+            width: 70px;
+            height: 70px;
+            overflow: hidden;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* Logo image styling */
+        .logo img {
+            width: 100%;
+            height: auto;
+            max-height: 70px;
+            object-fit: contain;
+            vertical-align: middle;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--accent-color-1);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        /* Blog post styles */
+        .blog-post {
+            padding: 60px 0;
+        }
+        
+        .post-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .post-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .post-tag {
+            display: inline-block;
+            background-color: var(--accent-color-3);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .post-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            line-height: 1.3;
+            font-weight: 800;
+        }
+        
+        .post-meta {
+            display: flex;
+            justify-content: center;
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+        }
+        
+        .post-meta span {
+            margin: 0 10px;
+        }
+        
+        .post-featured-img {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+        
+        /* Content layout - text left, image right */
+        .post-content-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .post-text {
+            flex: 3;
+            min-width: 300px;
+        }
+        
+        .post-image {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .post-image img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: transform 0.5s;
+            height: auto;
+            object-fit: cover;
+        }
+        
+        .post-image:hover img {
+            transform: scale(1.03);
+        }
+        
+        /* Post content styling */
+        .post-content h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin: 40px 0 20px;
+            font-weight: 700;
+        }
+        
+        .post-content h3 {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin: 30px 0 15px;
+            font-weight: 700;
+        }
+        
+        .post-content p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .post-content ul, .post-content ol {
+            margin-bottom: 20px;
+            padding-left: 30px;
+        }
+        
+        .post-content li {
+            margin-bottom: 10px;
+        }
+        
+        .post-content blockquote {
+            border-left: 4px solid var(--accent-color-1);
+            padding-left: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            color: #555;
+        }
+        
+        .personal-reflection {
+            background-color: rgba(76, 201, 240, 0.1);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px 0;
+            font-style: italic;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .personal-reflection::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--accent-color-2), var(--accent-color-1));
+            top: 0;
+            left: 0;
+        }
+        
+        /* Author section */
+        .author-section {
+            display: flex;
+            align-items: center;
+            margin-top: 50px;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(92, 40, 229, 0.05) 0%, rgba(76, 201, 240, 0.1) 100%);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            position: relative;
+        }
+        
+        .author-section::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--accent-color-1), var(--primary-color));
+            top: 0;
+            left: 0;
+            border-radius: 12px 12px 0 0;
+        }
+        
+        .author-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .author-bio h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        
+        /* Related posts */
+        .related-posts {
+            margin-top: 60px;
+        }
+        
+        .related-posts h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            position: relative;
+            font-weight: 800;
+        }
+        
+        .related-posts h2:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color-1);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+        
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .related-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .related-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .related-img {
+            height: 180px;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .related-card:hover .related-img {
+            transform: scale(1.05);
+        }
+        
+        .related-content {
+            padding: 25px;
+        }
+        
+        .related-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        
+        .related-meta {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .read-more::after {
+            content: '→';
+            margin-left: 4px;
+            transition: transform 0.3s;
+        }
+        
+        .read-more:hover {
+            color: var(--accent-color-1);
+        }
+        
+        .read-more:hover::after {
+            transform: translateX(4px);
+        }
+        
+        /* Comments section */
+        .comments-section {
+            margin-top: 60px;
+        }
+        
+        .comments-section h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+        
+        .comment-form textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            resize: vertical;
+            min-height: 120px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05) inset;
+        }
+        
+        .comment-form input[type="text"],
+        .comment-form input[type="email"] {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05) inset;
+        }
+        
+        .comment-form button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .comment-form button:hover {
+            background-color: var(--accent-color-1);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+        
+        /* Share buttons */
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .share-buttons a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: var(--light-color);
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        
+        .share-buttons a:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.02);
+            top: -100px;
+            left: -100px;
+        }
+        
+        .footer-nav {
+            margin-bottom: 20px;
+        }
+        
+        .footer-nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-nav a:hover {
+            color: var(--accent-color-2);
+        }
+        
+        /* Responsive styles */
+        @media screen and (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .post-title {
+                font-size: 2rem;
+            }
+            
+            .post-meta {
+                flex-direction: column;
+            }
+            
+            .post-meta span {
+                margin: 5px 0;
+            }
+            
+            .post-content-flex {
+                flex-direction: column-reverse;
+            }
+            
+            .author-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .author-img {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .share-buttons {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-container">
+                <a href="index.html" class="logo">
+                    <img src="images/LoA.webp" alt="SCI-BLOG by Anisha S Menon">
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Main Site</a></li>
+                        <li><a href="index.html#blog">Blog</a></li>
+                        <li><a href="index.html#talks">Talks & Workshops</a></li>
+                        <li><a href="index.html#resources">Resources</a></li>
+                        <li><a href="index.html#newsletter">Newsletter</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Blog Post Content -->
+    <section class="blog-post">
+        <div class="container">
+            <div class="post-container">
+                <div class="post-header">
+                    <span class="post-tag">Personal Reflections</span>
+                    <h1 class="post-title">Two Years Into My PhD Journey: Reflections and Advice</h1>
+                    <div class="post-meta">
+                        <span><i class="far fa-calendar"></i> March 15, 2025</span>
+                        <span><i class="far fa-clock"></i> 8 min read</span>
+                    <p>&copy; 2025 Anisha S Menon. All rights reserved.</p>
+            </div>
+        </footer>
+        
+        <!-- JavaScript -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Sticky header effect
+                const header = document.querySelector('header');
+                
+                function toggleStickyHeader() {
+                    if (window.scrollY > 100) {
+                        header.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+                    } else {
+                        header.style.boxShadow = 'none';
+                    }
+                }
+                
+                window.addEventListener('scroll', toggleStickyHeader);
+                
+                // Smooth scrolling for anchor links
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        
+                        const targetId = this.getAttribute('href');
+                        if (targetId === '#') return;
+                        
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
+                });
+            });
+        </script>
+    </body>
+    </html>    </div>
+                
+                <!-- Main content with left text, right image layout -->
+                <div class="post-content">
+                    <!-- Celebration image - fixed size -->
+                    <div style="text-align: center; margin-bottom: 40px;">
+                        <img src="images/2-year/cake.webp" alt="Its Been Two Years" style="width: 100%; max-width: 600px; height: auto; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.08);">
+                        <p style="font-style: italic; margin-top: 10px; color: #666;">Celebrating two years of growth, challenges, and discoveries in my PhD journey.</p>
+                    </div>
+                    
+                    <div class="post-content-flex">
+                        <div class="post-text">
+                            <h2>My Background: How I Got Here</h2>
+                            <p>I come from a zoology background, completing both my Bachelor's and Master's in this field. Why zoology? It was what the colleges near my home offered and what my family could afford. I wanted to pursue science but wasn't certain which specific path to take, so I followed the most accessible option.</p>
+                            
+                            <p>Looking back, I didn't consult with anyone because I was too shy to ask for guidance. In my community, everyone pushed for either B.Tech or MBBS degrees. My parents gave me considerable freedom to choose my path, but decision-making felt overwhelming, so I took the safe route rather than experimenting with alternatives. I committed myself to working hard in whatever field I ultimately pursued.</p>
+                        </div>
+                        <div class="post-image">
+                            <img src="images/2-year/My Background_ How I Got Here - visual selection.png" alt="PhD Journey">
+                        </div>
+                    </div>
+                    
+                    <p>Determination was one thing; reality proved to be another. After completing my Master's, I joined CSIR-CCMB after a two-year delay due to the pandemic disrupting my carefully planned timeline. As I grew older, I became increasingly aware that we're all like lab rats spinning in a wheel, so I patiently waited for my opportunity to continue my academic journey.</p>
+                    
+                    <p>Had I encountered someone to advise me about taking online courses during that waiting period, I might have been better prepared for my PhD work. Despite financial limitations, I persisted in my desire to pursue research and eventually joined a lab.</p>
+                    
+                    <h2>What I Wish I Had Known</h2>
+                    <p>In hindsight, there are two critical things I wish I had known before starting my PhD:</p>
+                    <ul>
+                        <li><strong>Technical knowledge:</strong> Understanding key laboratory techniques would have helped me develop better strategies for answering interview questions and beginning my research.</li>
+                        <li><strong>Coding and cutting-edge technologies:</strong> Prior knowledge in programming or computational methods would have accelerated my progress significantly.</li>
+                    </ul>
+                    
+                    <p>Despite lacking these skills initially, what carried me through was my genuine desire to learn and my willingness to make mistakes.</p>
+                    
+                    <blockquote>
+                        The most important qualities for a PhD student aren't technical skills—those can be learned. What's crucial is persistence, curiosity, and the humility to recognize what you don't know.
+                    </blockquote>
+                    
+                    <div class="post-content-flex">
+                        <div class="post-image">
+                            <img src="images/2-year/Anisha.png" alt="Laboratory Work">
+                        </div>
+                        <div class="post-text">
+                            <h2>Lessons From My Early PhD Days</h2>
+                            
+                            <h3>1. Love Your Research Topic</h3>
+                            <p>If you love your work, you'll enjoy the process despite the challenges. When choosing a subject, imagine yourself working on that problem for the next 3 years. If the thought doesn't excite you, reconsider your choice—otherwise, you risk growing to resent your research.</p>
+                            
+                            <h3>2. Cultivate Self-Motivation</h3>
+                            <p>People may not always support your journey, and some might even take satisfaction in seeing you struggle. Keep your motivation high and don't wait for a mentor to appear suddenly with all the answers—be proactive in seeking knowledge and guidance.</p>
+                        </div>
+                    </div>
+                    
+                    <h3>3. Embrace Negative Results</h3>
+                    <p>When starting experiments or optimizing protocols, accept that your first attempts will rarely succeed. Trust yourself, learn from each setback, read extensively, and formulate better plans based on what you discover.</p>
+                    
+                    <h2>How to Better Prepare for a PhD</h2>
+                    <div class="post-content-flex">
+                        <div class="post-text">
+                            <h3>1. Gain Practical Experience First</h3>
+                            <p>Join a lab as a project trainee or associate before committing to a PhD. This experience helps you discover your true interests beyond theoretical knowledge and gives you valuable hands-on skills.</p>
+                            
+                            <h3>2. Stay Intellectually Flexible</h3>
+                            <p>Don't restrict yourself to one narrow field or methodology. Cast a wide net conceptually—interdisciplinary knowledge often leads to the most innovative research.</p>
+                            
+                            <h3>3. Choose a Lab With Diverse Expertise</h3>
+                            <p>Join a research group that offers broad technical training across multiple areas. By the end of your PhD, you should have acquired a rich toolkit of methods and approaches.</p>
+                        </div>
+                        <div class="post-image">
+                            <img src="images/2-year/Lab.jpeg" alt="Neuroscience Lab">
+                        </div>
+                    </div>
+                    
+                    <h3>4. Learn Computational Skills</h3>
+                    <p><strong>This is crucial:</strong> Invest time in learning programming, R, Python, and bioinformatics. The modern research landscape increasingly demands computational analysis skills, especially with high-throughput methods like ATAC-seq and RNA-seq becoming standard.</p>
+                    
+                    <h3>5. Read Extensively</h3>
+                    <p>Stay current with literature in your field and adjacent areas. Broad reading stimulates creative thinking and helps you position your work in the larger scientific context.</p>
+                    
+                    <h3>6. Choose Your Mentor Carefully</h3>
+                    <p>This may be the most important decision of all: Your PhD guide will be in your life for approximately 5 years, through your most difficult and happiest times. Choose your mentor meticulously by:</p>
+                    
+                    <ul>
+                        <li><strong>Asking thoughtful questions</strong> about their research interests after preparing in advance. This helps gauge how interested they are in finding answers together with you.</li>
+                        <li><strong>Questioning them about the topic</strong> to assess their ability to handle questions and how they might respond when you have research inquiries.</li>
+                        <li><strong>Talking to their lab members</strong> to understand the lab environment and assess their mentoring abilities.</li>
+                    </ul>
+                    
+                    <p>It's always a good sign when your PI responds with confidence and reassurance, like when mine told me it was okay that I had no prior experience or knowledge of neuroscience.</p>
+                    
+                    <div class="personal-reflection">
+                        <p>I started my journey with zero skills—I didn't even know how to hold pipettes correctly—and now I've developed considerable laboratory competence. If you wish to pursue this path, understand that it's never easy, and you shouldn't enter a PhD program expecting it to be fun. Your personal and professional lives may not always be in harmony, but as they say, all's fair in love and war.</p>
+                        
+                        <p>A PhD is as much about personal growth as it is about scientific training. The challenges you face will transform not just your expertise but your entire approach to problem-solving. Be patient with yourself, celebrate small victories, and remember that every established researcher once stood exactly where you stand now.</p>
+                    </div>
+                    
+                    <!-- Author section -->
+                    <div class="author-section">
+                        <img src="images/Profile.jpg" alt="Anisha S Menon" class="author-img">
+                        <div class="author-bio">
+                            <h3>About Anisha S Menon</h3>
+                            <p>PhD candidate at CSIR-CCMB specializing in neuroscience and neural regeneration. With a background in zoology, I am particularly interested in understanding the mechanisms of central nervous system injury and repair. Passionate about science communication and making complex research accessible to broader audiences.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Share buttons -->
+                    <div class="share-buttons">
+                        <p>Share this post:</p>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="far fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Related posts -->
+                <div class="related-posts">
+                    <h2>Related Posts</h2>
+                    <div class="related-grid">
+                        <!-- Related post 1 -->
+                        <div class="related-card">
+                            <img src="images/Feautred .png" alt="Will Neurons Grow" class="related-img">
+                            <div class="related-content">
+                                <h3>Will Neurons Grow Through What They Go Through?</h3>
+                                <div class="related-meta">February 14, 2024 • 5 min read</div>
+                                <a href="https://scitales.ccmb.res.in/will-neurons-grow-through-what-they-go-through/" class="read-more">Read Post</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Related post 2 -->
+                        <div class="related-card">
+                            <img src="images/blog2.jpg" alt="ATAC-seq Studies" class="related-img">
+                            <div class="related-content">
+                                <h3>Challenges in Single-Cell ATAC-seq Studies</h3>
+                                <div class="related-meta">October 15, 2024 • 4 min read</div>
+                                <a href="atac-seq-studies.html" class="read-more">Read Post</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Related post 3 -->
+                        <div class="related-card">
+                            <img src="images/IAN_24.png" alt="Conference Reflections" class="related-img">
+                            <div class="related-content">
+                                <h3>Reflections from IAN Conference 2024</h3>
+                                <div class="related-meta">November 12-14, 2024 • 6 min read</div>
+                                <a href="ian-conference-2024.html" class="read-more">Read Post</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Comments section -->
+<div class="comments-section">
+    <h2>Leave a Comment</h2>
+    <form class="comment-form" action="https://formspree.io/f/mblgjbpn" method="POST">
+        <textarea name="message" placeholder="Your comment..." required></textarea>
+        <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+            <input type="text" name="name" placeholder="Your Name" style="flex: 1; min-width: 250px;" required>
+            <input type="email" name="_replyto" placeholder="Your Email" style="flex: 1; min-width: 250px;" required>
+        </div>
+        <input type="hidden" name="_subject" value="New comment from blog">
+        <button type="submit">Post Comment</button>
+    </form>
+</div>
+</section>
+
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-nav">
+                <a href="index.html">Main Site</a>
+                <a href="index.html#blog">Blog</a>
+                <a href="index.html#talks">Talks</a>
+                <a href="index.html#resources">Resources</a>
+                <a href="index.html#newsletter">Newsletter</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+            

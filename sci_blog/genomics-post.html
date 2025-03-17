@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Promise of Genomics in Understanding Brain Injury | Anisha S Menon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Color variables */
+        :root {
+            --primary-color: #15202e;
+            --secondary-color: #004e98;
+            --accent-color: #6a98c9;
+            --light-color: #e6f4f5;
+            --dark-color: #333;
+            --text-color: #333;
+            --font-main: 'Helvetica Neue', Arial, sans-serif;
+            --dark-purple: #390A1A;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-main);
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #fff;
+            font-size: 16px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        /* Base logo styling */
+        .logo {
+            display: inline-block;
+            width: 70px;
+            height: 70px;
+            overflow: hidden;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* Logo image styling */
+        .logo img {
+            width: 100%;
+            height: auto;
+            max-height: 70px;
+            object-fit: contain;
+            vertical-align: middle;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Blog post styles */
+        .blog-post {
+            padding: 60px 0;
+        }
+        
+        .post-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .post-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .post-tag {
+            display: inline-block;
+            background-color: #4CAF50; /* Green for science communication tag */
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .post-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        
+        .post-meta {
+            display: flex;
+            justify-content: center;
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+        
+        .post-meta span {
+            margin: 0 10px;
+        }
+        
+        .post-featured-img {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        /* Content layout - text left, image right */
+        .post-content-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .post-text {
+            flex: 3;
+            min-width: 300px;
+        }
+        
+        .post-image {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .post-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        /* Post content styling */
+        .post-content h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin: 40px 0 20px;
+        }
+        
+        .post-content h3 {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin: 30px 0 15px;
+        }
+        
+        .post-content p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .post-content ul, .post-content ol {
+            margin-bottom: 20px;
+            padding-left: 30px;
+        }
+        
+        .post-content li {
+            margin-bottom: 10px;
+        }
+        
+        .post-content blockquote {
+            border-left: 4px solid var(--accent-color);
+            padding-left: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #555;
+        }
+        
+        .science-insight {
+            background-color: #e8f5e9;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+            border-left: 4px solid #4CAF50;
+        }
+        
+        .glossary-term {
+            font-weight: bold;
+            color: var(--secondary-color);
+            cursor: help;
+            border-bottom: 1px dotted var(--accent-color);
+        }
+        
+        /* Figure styling */
+        .figure {
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .figure img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .figure-caption {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+        }
+        
+        /* Author section */
+        .author-section {
+            display: flex;
+            align-items: center;
+            margin-top: 50px;
+            padding: 30px;
+            background-color: var(--light-color);
+            border-radius: 8px;
+        }
+        
+        .author-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+        
+        .author-bio h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        /* Related posts */
+        .related-posts {
+            margin-top: 60px;
+        }
+        
+        .related-posts h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .related-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .related-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .related-img {
+            height: 180px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .related-content {
+            padding: 20px;
+        }
+        
+        .related-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .related-meta {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        /* Comments section */
+        .comments-section {
+            margin-top: 60px;
+        }
+        
+        .comments-section h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+        }
+        
+        .comment-form textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .comment-form input[type="text"],
+        .comment-form input[type="email"] {
+            width: calc(50% - 10px);
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+        
+        .comment-form input[type="text"] {
+            margin-right: 20px;
+        }
+        
+        .comment-form button {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .comment-form button:hover {
+            background-color: #0056a8;
+        }
+        
+        /* Share buttons */
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .share-buttons a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            margin: 0 10px;
+            border-radius: 50%;
+            background-color: var(--light-color);
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .share-buttons a:hover {
+            background-color: var(--accent-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-nav {
+            margin-bottom: 20px;
+        }
+        
+        .footer-nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        
+        .footer-nav a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Responsive styles */
+        @media screen and (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .post-title {
+                font-size: 2rem;
+            }
+            
+            .post-meta {
+                flex-direction: column;
+            }
+            
+            .post-meta span {
+                margin: 5px 0;
+            }
+            
+            .post-content-flex {
+                flex-direction: column-reverse;
+            }
+            
+            .author-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .author-img {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .comment-form input[type="text"],
+            .comment-form input[type="email"] {
+                width: 100%;
+                margin-right: 0;
+            }
+            
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-container">
+                <a href="index.html" class="logo">
+                    <img src="images/LoA.webp" alt="SCI-BLOG by Anisha S Menon">
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Main Site</a></li>
+                        <li><a href="SCI-Blog.html#blog">Blog</a></li>
+                        <li><a href="SCI-Blog.html#talks">Talks & Workshops</a></li>
+                        <li><a href="SCI-Blog.html#resources">Resources</a></li>
+                        <li><a href="SCI-Blog.html#newsletter">Newsletter</a></li>
+                        <li><a href="SCI-Blog.html#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Blog Post Content -->
+    <section class="blog-post">
+        <div class="container">
+            <div class="post-container">
+                <div class="post-header">
+                    <span class="post-tag">Science Communication</span>
+                    <h1 class="post-title">The Promise of Genomics in Understanding Brain Injury</h1>
+                    <div class="post-meta">
+                        <span><i class="far fa-calendar"></i> January 31, 2025</span>
+                        <span><i class="far fa-clock"></i> 7 min read</span>
+                    </div>
+                </div>
+                
+                <!-- Main content with left text, right image layout -->
+                <div class="post-content">
+                    <div class="post-content-flex">
+                        <div class="post-text">
+                            <p>The human brain remains one of the most complex organs in the body, with approximately 86 billion neurons forming trillions of connections. When injury occurs—whether from trauma, stroke, or disease—the brain's response involves an intricate cascade of cellular and molecular events that have long been difficult to fully capture and understand.</p>
+                            
+                            <p>Until recently, our understanding of brain injury has been limited by technologies that could only provide a broad, population-level view of cellular responses. However, the emergence of single-cell genomics is revolutionizing this field, offering unprecedented insights into the behavior of individual cells during injury and recovery.</p>
+                        </div>
+                        <div class="post-image">
+                            <img src="images/blog4.jpg" alt="Brain genomics research">
+                        </div>
+                    </div>
+                    
+                    <h2>Beyond the Average: Why Single-Cell Approaches Matter</h2>
+                    <p>Traditional methods for studying brain injury relied on bulk tissue analysis—essentially taking the average response across millions of cells. While valuable, this approach masks the critical diversity of cellular responses that occur after injury. Consider these limitations of conventional approaches:</p>
+                    
+                    <ul>
+                        <li>They blend the signals from many different cell types (neurons, astrocytes, microglia, etc.)</li>
+                        <li>They obscure rare but potentially important cell populations</li>
+                        <li>They miss the dynamic range of responses even within the same cell type</li>
+                        <li>They cannot track cellular trajectories during recovery</li>
+                    </ul>
+                    
+                    <p>Single-cell genomics addresses these limitations by examining the gene expression profiles of individual cells. This allows researchers to:</p>
+                    
+                    <ul>
+                        <li>Identify which specific cell types are most affected by injury</li>
+                        <li>Discover previously unknown cell states that emerge during recovery</li>
+                        <li>Track how individual cells change their gene expression patterns over time</li>
+                        <li>Uncover the molecular mechanisms that drive successful or failed recovery</li>
+                    </ul>
+                    
+                    <div class="science-insight">
+                        <p><strong>For the curious reader:</strong> Single-cell RNA sequencing (scRNA-seq) works by isolating individual cells, capturing and reverse-transcribing their mRNA, and then sequencing these transcripts. This creates a "snapshot" of which genes are active in each cell at a given moment. When applied to brain tissue, this technique can reveal the distinct molecular signatures of thousands of individual cells simultaneously.</p>
+                    </div>
+                    
+                    <h2>Key Discoveries from Single-Cell Studies of Brain Injury</h2>
+                    
+                    <h3>1. Hidden Cellular Diversity</h3>
+                    <p>One of the most significant revelations from single-cell studies is the remarkable diversity within what were once thought to be homogeneous cell populations. For example, recent research has shown that microglia—the brain's resident immune cells—exist in at least 8-10 distinct states following injury, each potentially playing different roles in inflammation and repair.</p>
+                    
+                    <p>This diversity extends to neurons as well. Different subtypes of neurons show markedly different vulnerabilities to injury and varying capacities for recovery. Understanding these differences could help explain why some neural circuits recover better than others and provide targets for promoting repair.</p>
+                    
+                    <h3>2. Temporal Dynamics of Recovery</h3>
+                    <p>Single-cell approaches have also revealed the complex timecourse of cellular responses to injury. By sampling at multiple timepoints, researchers have identified:</p>
+                    
+                    <ul>
+                        <li>Early "first responder" cells that initiate the injury response</li>
+                        <li>Transient cell states that appear only during specific phases of recovery</li>
+                        <li>Long-term adaptations that persist months after the initial injury</li>
+                    </ul>
+                    
+                    <p>These temporal patterns may help explain why certain therapeutic interventions are only effective during specific windows, potentially guiding more precise timing of treatments.</p>
+                    
+                    <div class="figure">
+                        <img src="images/cell-trajectory.jpg" alt="Cell trajectory analysis following brain injury">
+                        <p class="figure-caption">Figure 1: Visualization of cellular trajectories following brain injury, showing how different cell populations emerge, transform, and resolve over time. Generated from single-cell RNA sequencing data.</p>
+                    </div>
+                    
+                    <h3>3. Cell-Cell Communication Networks</h3>
+                    <p>Perhaps most fascinating is how single-cell genomics has illuminated the complex communication networks between different cell types after injury. By analyzing receptor-ligand interactions across cell types, researchers can now map the "conversation" happening between:</p>
+                    
+                    <ul>
+                        <li>Injured neurons and supportive glial cells</li>
+                        <li>Infiltrating immune cells and resident brain cells</li>
+                        <li>Vascular cells and the neural tissue they supply</li>
+                    </ul>
+                    
+                    <p>These interaction maps reveal how the coordinated response to injury requires precise timing and communication between multiple cell types—and how disruptions in this communication might impair recovery.</p>
+                    
+                    <h2>From Discovery to Therapeutics: Translational Potential</h2>
+                    <p>The insights gained from single-cell genomics are not merely academic—they have significant potential to transform how we treat brain injuries:</p>
+                    
+                    <h3>Precision Therapeutic Targets</h3>
+                    <p>By identifying specific molecular pathways active in particular cell types, researchers can develop more targeted therapies with fewer side effects. For example, rather than broadly suppressing inflammation (which has both beneficial and detrimental aspects), treatments could selectively target harmful inflammatory cell states while preserving beneficial ones.</p>
+                    
+                    <h3>Biomarkers for Personalized Treatment</h3>
+                    <p>Single-cell approaches are also revealing potential biomarkers that could help stratify patients and predict recovery trajectories. These biomarkers might one day allow clinicians to tailor treatments to individual patients based on their specific injury profile.</p>
+                    
+                    <h3>Cell State Reprogramming</h3>
+                    <p>Perhaps most exciting is the possibility of deliberately reprogramming cell states to promote recovery. By understanding the gene regulatory networks that control beneficial versus detrimental cell states, researchers may be able to develop treatments that shift the balance toward repair and regeneration.</p>
+                    
+                    <div class="science-insight">
+                        <p><strong>The technology continues to evolve:</strong> Beyond RNA sequencing, newer single-cell technologies are providing even more dimensions of information. Single-cell ATAC-seq reveals the accessibility of DNA regulatory regions, spatial transcriptomics preserves the anatomical context of cells, and multi-omic approaches can measure multiple molecular features in the same cell. Together, these technologies provide an increasingly complete picture of the cellular response to brain injury.</p>
+                    </div>
+                    
+                    <h2>Challenges and Future Directions</h2>
+                    <p>Despite its transformative potential, single-cell genomics in brain injury research faces several challenges:</p>
+                    
+                    <ul>
+                        <li><strong>Technical hurdles:</strong> Brain tissue is particularly challenging to dissociate into viable single cells without altering their gene expression profiles</li>
+                        <li><strong>Computational complexity:</strong> Analyzing the massive datasets generated requires sophisticated bioinformatic approaches</li>
+                        <li><strong>Translation to humans:</strong> Most studies thus far have been conducted in animal models, and translation to human patients remains an important frontier</li>
+                    </ul>
+                    
+                    <p>Future directions in this field will likely include:</p>
+                    
+                    <ul>
+                        <li>Integration of single-cell data with other modalities (imaging, electrophysiology, behavior)</li>
+                        <li>Development of in vitro models that recapitulate the cellular complexity revealed by single-cell studies</li>
+                        <li>Application of single-cell approaches to human samples through biobanks and clinical partnerships</li>
+                        <li>Moving from observational studies to functional validation of key pathways</li>
+                    </ul>
+                    
+                    <h2>Conclusion: A New Era in Brain Injury Research</h2>
+                    <p>Single-cell genomics has fundamentally changed how we view brain injury, revealing a level of cellular and molecular complexity that was previously invisible. By providing a high-resolution map of the brain's response to injury, these approaches are opening new avenues for understanding recovery mechanisms and developing more effective treatments.</p>
+                    
+                    <p>As these technologies continue to evolve and become more accessible, we can expect an acceleration of discoveries that bridge the gap between basic neuroscience and clinical applications—ultimately benefiting the millions of people affected by brain injuries worldwide.</p>
+                    
+                    <!-- Author section -->
+                    <div class="author-section">
+                        <img src="images/author.jpg" alt="Anisha S Menon" class="author-img">
+                        <div class="author-bio">
+                            <h3>About Anisha S Menon</h3>
+                            <p>PhD candidate studying neural regeneration and epigenetic mechanisms following spinal cord injury. Passionate about translating complex scientific concepts into accessible knowledge for broader audiences.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Share buttons -->
+                    <div class="share-buttons">
+                        <p>Share this post:</p>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="far fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Related posts -->
+                <div class="related-posts">
+                    <h2>Related Posts</h2>
+                    <div class="related-grid">
+                        <!-- Related post 1 -->
+                        <div class="related-card">
+                            <img src="images/blog2.jpg" alt="ATAC-seq Studies" class="related-img">
+                            <div class="related-content">
+                                <h3>Challenges faced in Single-Cell ATAC-seq Studies</h3>
+                                <div class="related-meta">October 15, 2024 • 4 min read</div>
+                                <a href="atac-seq-studies.html" class="read-more">Read Post →</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Related post 2 -->
+                        <div class="related-card">
+                            <img src="images/blog6.jpg" alt="Mouse Models" class="related-img">
+                            <div class="related-content">
+                                <h3>Optimizing Mouse Models for Spinal Cord Injury Research</h3>
+                                <div class="related-meta">March 1, 2025 • 8 min read</div>
+                                <a href="#" class="read-more">Read Post →</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Related post 3 -->
+                        <div class="related-card">
+                            <img src="images/blog1.jpg" alt="Neuron Growth" class="related-img">
+                            <div class="related-content">
+                                <h3>Will Neurons Grow Through What They Go Through?</h3>
+                                <div class="related-meta">February 14, 2024 • 5 min read</div>
+                                <a href="#" class="read-more">Read Post →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Comments section -->
+                <div class="comments-section">
+                    <h2>Leave a Comment</h2>
+                    <form class="comment-form">
+                        <textarea placeholder="Your comment..."></textarea>
+                        <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+                            <input type="text" placeholder="Your Name" style="flex: 1; min-width: 250px;">
+                            <input type="email" placeholder="Your Email" style="flex: 1; min-width: 250px;">
+                        </div>
+                        <button type="submit">Post Comment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-nav">
+                <a href="index.html">Main Site</a>
+                <a href="SCI-Blog.html#blog">Blog</a>
+                <a href="SCI-Blog.html#talks">Talks</a>
+                <a href="SCI-Blog.html#resources">Resources</a>
+                <a href="SCI-Blog.html#newsletter">Newsletter</a>
+                <a href="SCI-Blog.html#contact">Contact</a>
+            </div>
+            <p>&copy; 2025 Anisha S Menon. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript for sticky header effect -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.querySelector('header');
+            
+            function toggleStickyHeader() {
+                if (window.scrollY > 100) {
+                    header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+                } else {
+                    header.style.boxShadow = 'none';
+                }
+            }
+            
+            window.addEventListener('scroll', toggleStickyHeader);
+        });
+    </script>
+</body>
+</html>

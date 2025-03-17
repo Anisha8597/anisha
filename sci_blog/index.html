@@ -773,29 +773,996 @@
                 padding: 15px;
             }
         }
+        /* Enhanced Styles for Anisha's Neuroscience Blog */
+
+/* ====== AUTHOR BIO SECTION ====== */
+.author-bio {
+    padding: 60px 0;
+    background-color: rgba(76, 201, 240, 0.05);
+    position: relative;
+}
+
+.author-bio::before {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(114, 9, 183, 0.03);
+    border-radius: 50%;
+    top: -50px;
+    right: 15%;
+    z-index: 0;
+}
+
+.bio-container {
+    display: flex;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.bio-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+.bio-image {
+    flex: 0 0 200px;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.bio-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.bio-container:hover .bio-image img {
+    transform: scale(1.05);
+}
+
+.bio-content {
+    flex: 1;
+    padding: 30px;
+}
+
+.bio-content h2 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+
+.bio-social {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.bio-social a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--light-color);
+    color: var(--primary-color);
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+}
+
+.bio-social a:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+/* ====== MOBILE MENU ====== */
+.mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    padding: 0;
+}
+
+.mobile-menu-btn span {
+    width: 30px;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.nav-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 8;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.nav-backdrop.active {
+    display: block;
+    opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+    .mobile-menu-btn {
+        display: flex;
+    }
+    
+    .main-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: white;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        transition: right 0.3s ease;
+        z-index: 9;
+        padding-top: 70px;
+    }
+    
+    .main-nav.active {
+        right: 0;
+    }
+    
+    .main-nav ul {
+        flex-direction: column;
+        padding: 20px;
+    }
+    
+    .main-nav ul li {
+        margin: 15px 0;
+    }
+    
+    /* Hamburger animation */
+    .mobile-menu-btn.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .mobile-menu-btn.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .mobile-menu-btn.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+    
+    .bio-container {
+        flex-direction: column;
+    }
+    
+    .bio-image {
+        flex: 0 0 auto;
+        width: 100%;
+        height: 180px;
+    }
+}
+
+/* ====== SEARCH FUNCTIONALITY ====== */
+.search-container {
+    background-color: rgba(76, 201, 240, 0.05);
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.search-form {
+    display: flex;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.search-input {
+    flex: 1;
+    padding: 14px 25px;
+    border: none;
+    font-size: 1rem;
+    background-color: white;
+}
+
+.search-input:focus {
+    outline: none;
+}
+
+.search-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-btn:hover {
+    background-color: var(--accent-color-1);
+}
+
+.search-results {
+    max-width: 600px;
+    margin: 15px auto 0;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+    display: none;
+}
+
+.search-result-item {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.3s;
+}
+
+.search-result-item:hover {
+    background-color: rgba(76, 201, 240, 0.05);
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.search-result-item h4 {
+    margin-bottom: 8px;
+    color: var(--primary-color);
+}
+
+.search-result-item h4 a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s;
+}
+
+.search-result-item h4 a:hover {
+    color: var(--accent-color-1);
+}
+
+.search-result-item p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.result-category {
+    display: inline-block;
+    font-size: 0.8rem;
+    padding: 2px 10px;
+    background-color: var(--light-color);
+    color: var(--primary-color);
+    border-radius: 20px;
+}
+
+/* ====== NEWSLETTER FORM ====== */
+.newsletter-form {
+    display: flex;
+    margin-top: 30px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    border-radius: 50px;
+    overflow: hidden;
+    border: none;
+}
+
+.newsletter-input {
+    flex: 1;
+    padding: 15px 25px;
+    border: none;
+    font-size: 1rem;
+    background-color: white;
+}
+
+.newsletter-input:focus {
+    outline: none;
+}
+
+.newsletter-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.newsletter-btn:hover {
+    background-color: var(--accent-color-1);
+}
+
+.form-response {
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin-top: 15px;
+    font-size: 0.95rem;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ====== RELATED POSTS ====== */
+.related-posts {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid #eee;
+    background-color: rgba(76, 201, 240, 0.02);
+    padding: 50px 0;
+    border-radius: 10px;
+}
+
+.related-posts-title {
+    text-align: center;
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+    position: relative;
+}
+
+.related-posts-title:after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: var(--accent-color-1);
+    margin: 15px auto;
+    border-radius: 2px;
+}
+
+.related-posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.related-post-card {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.related-post-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.related-post-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.related-post-card:hover .related-post-img {
+    transform: scale(1.05);
+}
+
+.related-post-content {
+    padding: 20px;
+}
+
+.related-post-category {
+    display: inline-block;
+    font-size: 0.8rem;
+    color: var(--accent-color-1);
+    margin-bottom: 10px;
+}
+
+.related-post-content h4 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    line-height: 1.4;
+}
+
+.related-post-content .read-more {
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.related-post-content .read-more::after {
+    content: '→';
+    margin-left: 4px;
+    transition: transform 0.3s;
+}
+
+.related-post-content .read-more:hover {
+    color: var(--accent-color-1);
+}
+
+.related-post-content .read-more:hover::after {
+    transform: translateX(4px);
+}
+
+/* ====== TABLE OF CONTENTS ====== */
+.table-of-contents {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border-left: 4px solid var(--accent-color-2);
+}
+
+.table-of-contents h3 {
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    position: relative;
+    padding-left: 22px;
+}
+
+.table-of-contents h3:before {
+    content: '\f02e';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    color: var(--accent-color-2);
+}
+
+.table-of-contents ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.table-of-contents li {
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.table-of-contents a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: all 0.3s;
+    display: inline-block;
+    padding-left: 15px;
+    position: relative;
+}
+
+.table-of-contents a:before {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--accent-color-2);
+    left: 0;
+    top: 9px;
+}
+
+.table-of-contents a:hover {
+    color: var(--accent-color-1);
+    transform: translateX(3px);
+}
+
+.toc-level-2 {
+    padding-left: 20px;
+    font-size: 0.95em;
+}
+
+.toc-level-3 {
+    padding-left: 40px;
+    font-size: 0.9em;
+}
+
+/* ====== LAZY LOADING IMAGES ====== */
+.lazy-image {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.lazy-image-loaded {
+    opacity: 1;
+}
+
+.image-placeholder {
+    background-color: #f0f0f0;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-placeholder::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -150px;
+    top: 0;
+    height: 100%;
+    width: 150px;
+    background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
+    animation: loading 1.5s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+}
+
+@keyframes loading {
+    from {
+        left: -150px;
+    }
+    to {
+        left: 100%;
+    }
+}
+
+/* ====== FIXED BLOG POST PAGINATION ====== */
+.blog-grid {
+    margin-bottom: 50px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 50px;
+    padding: 10px 0;
+}
+
+.page-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    transition: all 0.3s;
+}
+
+.page-btn:hover, .page-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+/* ====== IMPROVED BLOG CARDS ====== */
+.blog-card {
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+    z-index: 1;
+}
+
+.blog-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(247, 37, 133, 0.03) 0%, rgba(114, 9, 183, 0.03) 100%);
+    border-radius: 12px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.blog-card:hover::before {
+    opacity: 1;
+}
+
+.blog-card .blog-img-container {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.blog-card .blog-img {
+    transition: transform 0.5s, filter 0.3s;
+}
+
+.blog-card:hover .blog-img {
+    transform: scale(1.05);
+    filter: brightness(1.05);
+}
+
+.blog-card .blog-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.blog-card .blog-meta .date {
+    display: flex;
+    align-items: center;
+}
+
+.blog-card .blog-meta .date i {
+    margin-right: 5px;
+    color: var(--accent-color-1);
+}
+
+.blog-card .blog-meta .read-time {
+    display: flex;
+    align-items: center;
+}
+
+.blog-card .blog-meta .read-time i {
+    margin-right: 5px;
+    color: var(--accent-color-3);
+}
+
+.blog-card .read-more {
+    margin-top: 15px;
+}
+
+/* ====== READ MORE BUTTONS ====== */
+.read-more {
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+    position: relative;
+    padding-bottom: 2px;
+}
+
+.read-more::after {
+    content: '→';
+    margin-left: 4px;
+    transition: transform 0.3s;
+}
+
+.read-more::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color-1);
+    transition: width 0.3s;
+}
+
+.read-more:hover {
+    color: var(--accent-color-1);
+}
+
+.read-more:hover::after {
+    transform: translateX(4px);
+}
+
+.read-more:hover::before {
+    width: calc(100% - 14px); /* Account for arrow width */
+}
+
+/* ====== RESPONSIVE FIXES ====== */
+@media screen and (max-width: 480px) {
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .featured-post {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    
+    .category-filter {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding: 10px 0;
+        margin: 0 -20px 40px;
+        padding-left: 20px;
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .filter-btn {
+        flex: 0 0 auto;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+        border-radius: 12px;
+    }
+    
+    .newsletter-input {
+        padding: 15px;
+        text-align: center;
+        border-radius: 12px 12px 0 0;
+    }
+    
+    .newsletter-btn {
+        padding: 15px;
+        border-radius: 0 0 12px 12px;
+    }
+}
+<!-- 2. CSS FOR AUTHOR BIO (Add to your CSS) -->
+<style>
+    .author-bio {
+        padding: 60px 0;
+        background-color: rgba(76, 201, 240, 0.05);
+    }
+    
+    .bio-container {
+        display: flex;
+        align-items: center;
+        max-width: 900px;
+        margin: 0 auto;
+        background-color: white;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+    
+    .bio-image {
+        flex: 0 0 200px;
+        height: 200px;
+    }
+    
+    .bio-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .bio-content {
+        flex: 1;
+        padding: 25px;
+    }
+    
+    .bio-content h2 {
+        color: var(--primary-color);
+        margin-bottom: 15px;
+        font-weight: 700;
+    }
+    
+    .bio-social {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+    }
+    
+    .bio-social a {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        background-color: var(--light-color);
+        color: var(--primary-color);
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s;
+    }
+    
+    .bio-social a:hover {
+        background-color: var(--primary-color);
+        color: white;
+        transform: translateY(-3px);
+    }
+    
+    @media screen and (max-width: 768px) {
+        .bio-container {
+            flex-direction: column;
+        }
+        
+        .bio-image {
+            flex: 0 0 auto;
+            width: 100%;
+            height: 180px;
+        }
+    }
+    <!-- 4. CSS FOR MOBILE MENU (Add to your CSS) -->
+<style>
+    .mobile-menu-btn {
+        display: none;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 25px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 10;
+    }
+    
+    .mobile-menu-btn span {
+        width: 30px;
+        height: 3px;
+        background-color: var(--primary-color);
+        border-radius: 5px;
+        transition: all 0.3s;
+    }
+    
+    @media screen and (max-width: 768px) {
+        .mobile-menu-btn {
+            display: flex;
+        }
+        
+        .main-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 70%;
+            height: 100vh;
+            background-color: white;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+            z-index: 9;
+            padding-top: 70px;
+        }
+        
+        .main-nav.active {
+            right: 0;
+        }
+        
+        .main-nav ul {
+            flex-direction: column;
+            padding: 20px;
+        }
+        
+        .main-nav ul li {
+            margin: 15px 0;
+        }
+        
+        /* Hamburger animation */
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+    }
+    <!-- 7. CSS FOR SEARCH (Add to your CSS) -->
+<style>
+    .search-container {
+        background-color: var(--light-color);
+        padding: 20px 0;
+    }
+    
+    .search-form {
+        display: flex;
+        max-width: 600px;
+        margin: 0 auto;
+        border-radius: 30px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .search-input {
+        flex: 1;
+        padding: 12px 20px;
+        border: none;
+        font-size: 1rem;
+    }
+    
+    .search-btn {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 0 20px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    
+    .search-btn:hover {
+        background-color: var(--accent-color-1);
+    }
+    
+    .search-results {
+        max-width: 600px;
+        margin: 15px auto 0;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        overflow: hidden;
+        display: none;
+    }
+    
+    .search-result-item {
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .search-result-item:last-child {
+        border-bottom: none;
+    }
+    
+    .search-result-item h4 {
+        margin-bottom: 5px;
+        color: var(--primary-color);
+    }
+    
+    .search-result-item p {
+        font-size: 0.9rem;
+        color: #666;
+    }
+
+
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="header-container">
-                <a href="index.html" class="logo">
-                    <img src="images/LoA.webp" alt="SCI-BLOG by Anisha S Menon">
-                </a>
-                <nav>
-                    <ul>
-                        <li><a href="https://anisha8597.github.io/anisha/">Main Site</a></li>
-                        <li><a href="#blog">Blog</a></li>
-                        <li><a href="#resources">Educational Resources</a></li>
-                        <li><a href="#newsletter">Newsletter</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </nav>
+    <!-- 3. MOBILE-FRIENDLY HAMBURGER MENU (Replace your existing header) -->
+<header>
+    <div class="container">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="images/LoA.webp" alt="SCI-BLOG by Anisha S Menon">
+            </a>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="https://anisha8597.github.io/anisha/">Main Site</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#resources">Educational Resources</a></li>
+                    <li><a href="#newsletter">Newsletter</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-    </header>
-    
+    </div>
+</header>
+<!-- 6. SEARCH FUNCTIONALITY (Add after hero section or in header) -->
+<div class="search-container">
+    <div class="container">
+        <form id="searchForm" class="search-form">
+            <input type="text" id="searchInput" placeholder="Search articles..." class="search-input">
+            <button type="submit" class="search-btn">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
+        <div id="searchResults" class="search-results"></div>
+    </div>
+</div>
+   
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
@@ -804,6 +1771,26 @@
             <a href="#blog" class="btn">Read Latest Posts</a>
         </div>
     </section>
+    
+     <!-- 1. AUTHOR BIO SECTION (Add after hero section) -->
+<section class="author-bio">
+    <div class="container">
+        <div class="bio-container">
+            <div class="bio-image">
+                <img src="images/Profile.jpg" alt="Anisha S Menon">
+            </div>
+            <div class="bio-content">
+                <h2>About Anisha</h2>
+                <p>I'm a PhD student in neuroscience specializing in neural regeneration and epigenetics at CCMB. Through this blog, I aim to share the fascinating world of neuroscience in an accessible way, blending rigorous research with personal reflections on the scientific journey.</p>
+                <div class="bio-social">
+                    <a href="https://x.com/AnishaSumith" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/anisha-s-menon-27976319a/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.researchgate.net/profile/Anisha-S-Menon?ev=hdr_xprf" target="_blank"><i class="fab fa-researchgate"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
     
     <!-- Blog Posts Section -->
     <section id="blog" class="section blog-posts">
@@ -1197,6 +2184,760 @@
                 
                 window.addEventListener('scroll', toggleStickyHeader);
             });
+            /**
+ * Enhanced JavaScript functionality for Anisha's Neuroscience Blog
+ */
+
+document.addEventListener('DOMContentLoaded', function() {
+    // ====== MOBILE MENU FUNCTIONALITY ======
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const mainNav = document.querySelector('.main-nav');
+    const navBackdrop = document.createElement('div');
+    navBackdrop.className = 'nav-backdrop';
+    document.body.appendChild(navBackdrop);
+    
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', function() {
+            this.classList.toggle('active');
+            mainNav.classList.toggle('active');
+            navBackdrop.classList.toggle('active');
+            
+            // Prevent body scrolling when menu is open
+            if (mainNav.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+    }
+    
+    // Close mobile menu when clicking backdrop
+    navBackdrop.addEventListener('click', () => {
+        mainNav.classList.remove('active');
+        mobileMenuBtn.classList.remove('active');
+        navBackdrop.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+    
+    // Close mobile menu when clicking a link
+    const navLinks = document.querySelectorAll('.main-nav a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mainNav.classList.remove('active');
+            mobileMenuBtn.classList.remove('active');
+            navBackdrop.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+    
+    // ====== CATEGORY FILTER FUNCTIONALITY ======
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const blogCards = document.querySelectorAll('.blog-card');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            const category = this.textContent.trim();
+            
+            if (category === 'All Posts') {
+                // Show all posts with a nice staggered animation
+                blogCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 50);
+                    }, index * 100);
+                });
+            } else {
+                // Filter posts by category
+                blogCards.forEach(card => {
+                    const cardCategory = card.querySelector('.blog-tag').textContent.trim();
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    
+                    if (cardCategory === category) {
+                        setTimeout(() => {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 50);
+                        }, 300);
+                    } else {
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            }
+        });
+    });
+    
+    // ====== SEARCH FUNCTIONALITY ======
+    const searchForm = document.getElementById('searchForm');
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('searchResults');
+    
+    // Sample blog posts data (replace with actual data from your CMS or database)
+    const blogPosts = [
+        {
+            title: "A Trail of Neurons: Finding new connections for the brain to adapt and recover",
+            excerpt: "The nervous system is a complex and long network of neuronal cells that pass information...",
+            url: "https://scitales.ccmb.res.in/a-trail-of-neurons-finding-new-connections-for-the-brain-to-adapt-and-recover/",
+            category: "Science Communication"
+        },
+        {
+            title: "Will Neurons Grow Through What They Go Through?",
+            excerpt: "A blend of personal and professional experiences relating to Neuronal Journey",
+            url: "https://scitales.ccmb.res.in/will-neurons-grow-through-what-they-go-through/",
+            category: "Science Communication"
+        },
+        {
+            title: "Two Years Into My PhD Journey: Reflections and Advice",
+            excerpt: "Reflections on completion of two Years as a PhD student, challenges faced...",
+            url: "phd-journey-updated.html",
+            category: "Personal Reflections"
+        },
+        {
+            title: "Reflections from the Neuroscience Conference (IAN) 2024",
+            excerpt: "Personal insights and key takeaways from presenting at the Indian Academy of Neuroscience Conference...",
+            url: "ian-conference-2024.html",
+            category: "Lab Life"
+        },
+        // Add more blog posts as they become available
+    ];
+    
+    if (searchForm) {
+        searchForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            performSearch();
+        });
+        
+        // Search as you type
+        searchInput.addEventListener('input', function() {
+            if (this.value.length >= 2) {
+                performSearch();
+            } else {
+                searchResults.style.display = 'none';
+            }
+        });
+        
+        function performSearch() {
+            const query = searchInput.value.toLowerCase();
+            
+            if (query.length < 2) {
+                searchResults.style.display = 'none';
+                return;
+            }
+            
+            // Filter posts based on search query
+            const filteredPosts = blogPosts.filter(post => 
+                post.title.toLowerCase().includes(query) || 
+                post.excerpt.toLowerCase().includes(query) ||
+                post.category.toLowerCase().includes(query)
+            );
+            
+            // Display results
+            if (filteredPosts.length > 0) {
+                searchResults.innerHTML = '';
+                filteredPosts.forEach(post => {
+                    const resultItem = document.createElement('div');
+                    resultItem.className = 'search-result-item';
+                    resultItem.innerHTML = `
+                        <h4><a href="${post.url}">${highlightMatches(post.title, query)}</a></h4>
+                        <p>${highlightMatches(post.excerpt, query)}</p>
+                        <span class="result-category">${post.category}</span>
+                    `;
+                    searchResults.appendChild(resultItem);
+                });
+                searchResults.style.display = 'block';
+            } else {
+                searchResults.innerHTML = '<div class="search-result-item">No results found</div>';
+                searchResults.style.display = 'block';
+            }
+        }
+        
+        // Highlight matching text in search results
+        function highlightMatches(text, query) {
+            const regex = new RegExp(`(${query})`, 'gi');
+            return text.replace(regex, '<span style="background-color: #ffe3f1; color: #333;">$1</span>');
+        }
+        
+        // Hide results when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!searchForm.contains(e.target)) {
+                searchResults.style.display = 'none';
+            }
+        });
+    }
+    
+    // ====== NEWSLETTER FORM HANDLING ======
+    const newsletterForm = document.getElementById('newsletterForm');
+    const formResponse = document.getElementById('formResponse');
+    
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            
+            // Simulate form submission (replace with actual fetch to Formspree)
+            formResponse.style.display = 'block';
+            formResponse.style.backgroundColor = '#d4edda';
+            formResponse.style.color = '#155724';
+            formResponse.textContent = 'Thank you for subscribing! Please check your email for confirmation.';
+            
+            // Reset form
+            newsletterForm.reset();
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                formResponse.style.display = 'none';
+            }, 5000);
+            
+            // Uncomment for actual Formspree integration
+            /*
+            fetch(this.action, {
+                method: this.method,
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error('Network response was not ok.');
+            })
+            .then(data => {
+                // Success message
+                formResponse.style.display = 'block';
+                formResponse.style.backgroundColor = '#d4edda';
+                formResponse.style.color = '#155724';
+                formResponse.textContent = 'Thank you for subscribing! Please check your email for confirmation.';
+                
+                // Reset form
+                newsletterForm.reset();
+                
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    formResponse.style.display = 'none';
+                }, 5000);
+            })
+            .catch(error => {
+                // Error message
+                formResponse.style.display = 'block';
+                formResponse.style.backgroundColor = '#f8d7da';
+                formResponse.style.color = '#721c24';
+                formResponse.textContent = 'Sorry, there was an error submitting your form. Please try again later.';
+                
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    formResponse.style.display = 'none';
+                }, 5000);
+            });
+            */
+        });
+    }
+    
+    // ====== TABLE OF CONTENTS GENERATION ======
+    const tocList = document.getElementById('tocList');
+    const articleContent = document.querySelector('.article-content');
+    
+    if (tocList && articleContent) {
+        const headings = articleContent.querySelectorAll('h2, h3, h4');
+        
+        if (headings.length > 0) {
+            headings.forEach((heading, index) => {
+                // Add ID to heading if it doesn't have one
+                if (!heading.id) {
+                    heading.id = `heading-${index}`;
+                }
+                
+                // Create TOC item
+                const listItem = document.createElement('li');
+                const link = document.createElement('a');
+                link.href = `#${heading.id}`;
+                link.textContent = heading.textContent;
+                
+                // Add appropriate class based on heading level
+                if (heading.tagName === 'H3') {
+                    listItem.classList.add('toc-level-2');
+                } else if (heading.tagName === 'H4') {
+                    listItem.classList.add('toc-level-3');
+                }
+                
+                listItem.appendChild(link);
+                tocList.appendChild(listItem);
+                
+                // Add click event for smooth scrolling
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Update URL hash without jumping
+                        history.pushState(null, null, targetId);
+                    }
+                });
+            });
+        } else {
+            // Hide TOC if no headings
+            document.querySelector('.table-of-contents').style.display = 'none';
+        }
+    }
+    
+    // ====== LAZY LOADING IMAGES ======
+    const lazyImages = document.querySelectorAll('.lazy-image');
+    
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy-image');
+                    img.classList.add('lazy-image-loaded');
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+        
+        lazyImages.forEach(img => {
+            // Create placeholder while image loads
+            const parent = img.parentNode;
+            parent.classList.add('image-placeholder');
+            
+            imageObserver.observe(img);
+        });
+    } else {
+        // Fallback for browsers that don't support IntersectionObserver
+        lazyImages.forEach(img => {
+            img.src = img.dataset.src;
+            img.classList.remove('lazy-image');
+            img.classList.add('lazy-image-loaded');
+        });
+    }
+    
+    // ====== SMOOTH SCROLLING FOR ANCHOR LINKS ======
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            
+            // Skip if it's just "#" or it's a TOC link (already handled)
+            if (targetId === '#' || this.closest('.table-of-contents')) return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                e.preventDefault();
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Update URL hash without jumping
+                history.pushState(null, null, targetId);
+            }
+        });
+    });
+    
+    // ====== STICKY HEADER EFFECT ======
+    const header = document.querySelector('header');
+    
+    function toggleStickyHeader() {
+        if (window.scrollY > 100) {
+            header.classList.add('scrolled');
+            header.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+        } else {
+            header.classList.remove('scrolled');
+            header.style.boxShadow = 'none';
+        }
+    }
+    
+    window.addEventListener('scroll', toggleStickyHeader);
+    
+    // ====== ADDING READING TIME TO BLOG POSTS ======
+    const blogExcerpts = document.querySelectorAll('.blog-excerpt');
+    
+    blogExcerpts.forEach(excerpt => {
+        // Find blog meta element preceding this excerpt
+        const blogCard = excerpt.closest('.blog-card');
+        const blogMeta = blogCard.querySelector('.blog-meta');
+        const readTimeSpan = blogMeta.querySelector('.read-time');
+        
+        // Only add read time if it doesn't already exist
+        if (!readTimeSpan) {
+            // Estimate words in full article (excerpt * 5 is a rough estimate)
+            const words = excerpt.textContent.split(' ').length * 5;
+            const readingTime = Math.max(1, Math.round(words / 200)); // Assume 200 words per minute
+            
+            // Create read time element
+            const timeElement = document.createElement('span');
+            timeElement.className = 'read-time';
+            timeElement.innerHTML = `<i class="far fa-clock"></i> ${readingTime} min read`;
+            
+            // Add to blog meta
+            blogMeta.appendChild(timeElement);
+        }
+    });
+    
+    // ====== BACK TO TOP BUTTON ======
+    const backToTopBtn = document.createElement('button');
+    backToTopBtn.className = 'back-to-top';
+    backToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    document.body.appendChild(backToTopBtn);
+    
+    // Show/hide based on scroll position
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
+    });
+    
+    // Scroll to top when clicked
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Add CSS for back to top button
+    const style = document.createElement('style');
+    style.textContent = `
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.3s;
+            z-index: 99;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--accent-color-1);
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+        
+        @media screen and (max-width: 768px) {
+            .back-to-top {
+                width: 40px;
+                height: 40px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+});
+<!-- Add this script in the head section of your HTML -->
+
+<!-- 1. WEBSITE SCHEMA -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Anisha S Menon | Sci-Blog",
+  "url": "https://yourblogurl.com/",
+  "description": "Exploring the fascinating world of neural regeneration, epigenetics, and CNS injury research through engaging stories, personal reflections, and accessible explanations.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://yourblogurl.com/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<!-- 2. BLOG SCHEMA -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Neuroscience Stories & Perspectives",
+  "description": "Exploring the fascinating world of neural regeneration, epigenetics, and CNS injury research through engaging stories, personal reflections, and accessible explanations.",
+  "url": "https://yourblogurl.com/",
+  "author": {
+    "@type": "Person",
+    "name": "Anisha S Menon",
+    "url": "https://anisha8597.github.io/anisha/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Anisha S Menon",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://yourblogurl.com/images/LoA.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://yourblogurl.com/"
+  },
+  "blogPost": [
+    {
+      "@type": "BlogPosting",
+      "headline": "A Trail of Neurons: Finding new connections for the brain to adapt and recover",
+      "description": "The nervous system is a complex and long network of neuronal cells that pass information across each other to sense the surroundings and act on them. What happens if these connections are broken? Can the system bounce back and how?",
+      "image": "https://yourblogurl.com/images/a.webp",
+      "url": "https://scitales.ccmb.res.in/a-trail-of-neurons-finding-new-connections-for-the-brain-to-adapt-and-recover/",
+      "datePublished": "2024-03-13",
+      "dateModified": "2024-03-13",
+      "author": {
+        "@type": "Person",
+        "name": "Anisha S Menon"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Anisha S Menon"
+      },
+      "keywords": "neuroscience, neural regeneration, neuron connections, brain adaptation",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://scitales.ccmb.res.in/a-trail-of-neurons-finding-new-connections-for-the-brain-to-adapt-and-recover/"
+      }
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Will Neurons Grow Through What They Go Through?",
+      "description": "A blend of personal and professional experiences relating to Neuronal Journey",
+      "image": "https://yourblogurl.com/images/Feautred .png",
+      "url": "https://scitales.ccmb.res.in/will-neurons-grow-through-what-they-go-through/",
+      "datePublished": "2024-02-14",
+      "dateModified": "2024-02-14",
+      "author": {
+        "@type": "Person",
+        "name": "Anisha S Menon"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Anisha S Menon"
+      },
+      "keywords": "neuroscience, neurons, personal reflection, science communication",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://scitales.ccmb.res.in/will-neurons-grow-through-what-they-go-through/"
+      }
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Two Years Into My PhD Journey: Reflections and Advice",
+      "description": "Reflections on completion of two Years as a PhD student, challenges faced, skills developed, and advice for aspiring neuroscience researchers.",
+      "image": "https://yourblogurl.com/images/2-year/cake.webp",
+      "url": "https://yourblogurl.com/phd-journey-updated.html",
+      "datePublished": "2025-03-15",
+      "dateModified": "2025-03-15",
+      "author": {
+        "@type": "Person",
+        "name": "Anisha S Menon"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Anisha S Menon"
+      },
+      "keywords": "PhD journey, neuroscience research, academic advice, personal reflection",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://yourblogurl.com/phd-journey-updated.html"
+      }
+    }
+  ]
+}
+</script>
+
+<!-- 3. PERSON SCHEMA (for Author) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Anisha S Menon",
+  "url": "https://anisha8597.github.io/anisha/",
+  "sameAs": [
+    "https://x.com/AnishaSumith",
+    "https://www.linkedin.com/in/anisha-s-menon-27976319a/",
+    "https://www.researchgate.net/profile/Anisha-S-Menon?ev=hdr_xprf",
+    "https://www.instagram.com/epigenie_girl/"
+  ],
+  "jobTitle": "PhD Researcher in Neuroscience",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "CCMB"
+  },
+  "knowsAbout": ["Neuroscience", "Neural Regeneration", "Epigenetics", "CNS Injury", "Science Communication"]
+}
+</script>
+
+<!-- INSTRUCTIONS FOR BLOG POST PAGES -->
+<!-- 
+For each individual blog post page, include this schema in the head section.
+Replace the variables with the actual content for each post.
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "TITLE OF THE POST",
+  "description": "DESCRIPTION/EXCERPT OF THE POST",
+  "image": "URL TO FEATURED IMAGE",
+  "url": "URL OF THE POST",
+  "datePublished": "YYYY-MM-DD",
+  "dateModified": "YYYY-MM-DD",
+  "author": {
+    "@type": "Person",
+    "name": "Anisha S Menon"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Anisha S Menon",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://yourblogurl.com/images/LoA.webp"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "URL OF THE POST"
+  },
+  "keywords": "COMMA SEPARATED KEYWORDS",
+  "articleBody": "FULL TEXT OF THE ARTICLE"
+}
+<!-- 5. JAVASCRIPT FOR MOBILE MENU (Add to your existing script) -->
+<script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const mainNav = document.querySelector('.main-nav');
+    
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', function() {
+            this.classList.toggle('active');
+            mainNav.classList.toggle('active');
+        });
+    }
+    
+    // Close mobile menu when clicking a link
+    const navLinks = document.querySelectorAll('.main-nav a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mainNav.classList.remove('active');
+            mobileMenuBtn.classList.remove('active');
+        });
+    });
+
+    !-- 8. JAVASCRIPT FOR SEARCH (Add to your existing script) -->
+<script>
+    // Simple search functionality
+    const searchForm = document.getElementById('searchForm');
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('searchResults');
+    
+    // Blog posts data (you would dynamically generate this)
+    const blogPosts = [
+        {
+            title: "A Trail of Neurons: Finding new connections for the brain to adapt and recover",
+            excerpt: "The nervous system is a complex and long network of neuronal cells that pass information...",
+            url: "https://scitales.ccmb.res.in/a-trail-of-neurons-finding-new-connections-for-the-brain-to-adapt-and-recover/",
+            category: "Science Communication"
+        },
+        {
+            title: "Will Neurons Grow Through What They Go Through?",
+            excerpt: "A blend of personal and professional experiences relating to Neuronal Journey",
+            url: "https://scitales.ccmb.res.in/will-neurons-grow-through-what-they-go-through/",
+            category: "Science Communication"
+        },
+        {
+            title: "Two Years Into My PhD Journey: Reflections and Advice",
+            excerpt: "Reflections on completion of two Years as a PhD student, challenges faced...",
+            url: "phd-journey-updated.html",
+            category: "Personal Reflections"
+        },
+        // Add more posts as they become available
+    ];
+    
+    if (searchForm) {
+        searchForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const query = searchInput.value.toLowerCase();
+            
+            if (query.length < 2) {
+                searchResults.style.display = 'none';
+                return;
+            }
+            
+            // Filter posts based on search query
+            const filteredPosts = blogPosts.filter(post => 
+                post.title.toLowerCase().includes(query) || 
+                post.excerpt.toLowerCase().includes(query) ||
+                post.category.toLowerCase().includes(query)
+            );
+            
+            // Display results
+            if (filteredPosts.length > 0) {
+                searchResults.innerHTML = '';
+                filteredPosts.forEach(post => {
+                    const resultItem = document.createElement('div');
+                    resultItem.className = 'search-result-item';
+                    resultItem.innerHTML = `
+                        <h4><a href="${post.url}">${post.title}</a></h4>
+                        <p>${post.excerpt}</p>
+                        <span class="result-category">${post.category}</span>
+                    `;
+                    searchResults.appendChild(resultItem);
+                });
+                searchResults.style.display = 'block';
+            } else {
+                searchResults.innerHTML = '<div class="search-result-item">No results found</div>';
+                searchResults.style.display = 'block';
+            }
+        });
+        
+        // Hide results when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!searchForm.contains(e.target)) {
+                searchResults.style.display = 'none';
+            }
+        });
+    }
+
+</script>
+-->
         </script>
     </body>
     </html>

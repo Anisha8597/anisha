@@ -141,14 +141,14 @@
             background-image: url("images/A.jpg");
             background-size: cover;
             background-position: center;
-            opacity: 0.3;
-            z-index: 1;
-            animation: pulse 15s infinite alternate;
+            opacity: 0.8;
+            z-index: 0.8;
+            animation: pulse 3s infinite alternate;
         }
         
         @keyframes pulse {
-            0% { opacity: 0.2; }
-            100% { opacity: 0.4; }
+            0% { opacity: 0.4; }
+            100% { opacity: 0.8; }
         }
         
         .hero-content {
@@ -955,6 +955,84 @@
         transform: scale(1.05);
         transition: transform 0.3s ease;
     }
+    /* Mobile menu styles */
+.mobile-menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 2rem;
+    color: var(--primary-color);
+    z-index: 1000;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: block;
+    }
+    
+    .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+    }
+    
+    nav ul {
+        display: none;
+        position: absolute;
+        top: 100px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background-color: white;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        z-index: 100;
+        padding: 10px 0;
+    }
+    
+    nav ul.show {
+        display: flex;
+    }
+    
+    nav ul li {
+        margin: 0;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+    }
+    
+    nav ul li a {
+        display: block;
+        padding: 15px;
+        font-size: 1.2rem;
+    }
+}
+
+/* Research Expertise fixes */
+.toolkit-detail h3 {
+    color: #0b0b0b;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    text-decoration: none;
+}
+
+.toolkit-detail p {
+    color: #444;
+    line-height: 1.6;
+    font-size: 1.05rem;
+    text-decoration: none;
+}
+
+.toolkit-svg-item {
+    cursor: pointer;
+    transition: transform 0.3s;
+    text-decoration: none;
+}
+
+/* Making sure the SVG items don't act like links */
+.toolkit-svg-item rect,
+.toolkit-svg-item image,
+.toolkit-svg-item text {
+    pointer-events: none;
+}
 }
     </style>
 </head>
@@ -984,7 +1062,9 @@
         <div class="container">
             <div class="header-container">
                 <a href="#" class="logo">Welcome</a>
-                <nav>
+                 <!-- Add this line here -->
+    <div class="mobile-menu-toggle" aria-label="Toggle navigation menu">☰</div>
+    <nav>
                     <ul>
                         <li><a href="#about">About</a></li>
                         <li><a href="#research">Research</a></li>
@@ -1056,7 +1136,7 @@
                     <p>I am a Neuroscience Researcher at CSIR-Centre for Cellular and Molecular Biology (CCMB) specializing in CNS axon regeneration. My research focuses on understanding the Epigenetic mechanisms of neural repair and regeneration after injury.</p>
                     <p>My work combines advanced imaging techniques, single-cell genomics, molecular biology, Animal surgeries and behavioral assessment to develop a comprehensive understanding of neural regeneration processes in adult mouse model organisms. I'm particularly interested in identifying and targeting the intrinsic barriers that could inhibit recovery after spinal cord injury.</p>
                     <p>When I'm not in the lab, I enjoy science communication and mentoring young researchers interested in neuroscience. I believe in making complex scientific concepts accessible to broader audiences.</p>
-                    <p>Check out my articles on my <a href="sci_blog/index.html">Sci-Blog</a>.</p>
+                    <p><a href="sci_blog/index.html">Check out my articles on my Sci-Blog.</a></p>
                 </div>
             </div>
         </div>
@@ -1516,7 +1596,7 @@
                 setTimeout(autoSlideshow, 5000); // Change image every 5 seconds
             }
             
-            // JavaScript for Research Toolkit interaction
+            
             const toolkitItems = document.querySelectorAll('.toolkit-svg-item');
             const toolkitDetails = document.querySelectorAll('.toolkit-detail');
             
@@ -1583,7 +1663,7 @@
                             "random": false,
                             "straight": false,
                             "out_mode": "out",
-                            "bounce": false
+                     // JavaScript for Research Toolkit interaction       "bounce": false
                         }
                     },
                     "interactivity": {
@@ -1632,6 +1712,37 @@
             setTimeout(autoRotateAboutSlides, 2000);
             setTimeout(autoSlideshow, 5000);
         });
+        // Mobile menu toggle functionality
+const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+const navMenu = document.querySelector('nav ul');
+
+if (mobileMenuToggle && navMenu) {
+    mobileMenuToggle.addEventListener('click', function() {
+        navMenu.classList.toggle('show');
+    });
+    
+    // Close menu when a link is clicked
+    const navLinks = document.querySelectorAll('nav ul a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            navMenu.classList.remove('show');
+        });
+    });
+}
+
+// Add smooth scrolling for all anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            window.scrollTo({
+                top: target.offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
     </script>
 </body>
 </html>
